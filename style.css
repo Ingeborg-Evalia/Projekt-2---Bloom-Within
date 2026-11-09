@@ -1,0 +1,4198 @@
+/* BLOOM WITHIN - FARVER */
+
+:root {
+  --forest: #324237;
+  --sage: #A6B09C;
+  --clay: #C9926E;
+  --sand: #E7D8C4;
+  --cream: #F5EFE6;
+}
+
+/* GENERELT DESIGN */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--cream);
+  color: var(--forest);
+  font-family: Arial, sans-serif;
+  line-height: 1.7;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, serif;
+  line-height: 1.3;
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--clay);
+  outline-offset: 4px;
+}
+
+/* NAVIGATION */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  padding: 20px 7%;
+  background-color: var(--cream);
+}
+
+.logo {
+  font-family: Georgia, serif;
+  font-size: 25px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================
+
+   FÆLLES TILGÆNGELIGHED
+
+========================== */
+
+.accessibility-toggle {
+  background: #324237;
+  color: #FFFFFF;
+  border: 2px solid #324237;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-family: "DM Sans", sans-serif;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.accessibility-panel[hidden] {
+  display: none;
+}
+
+.accessibility-panel {
+  position: relative;
+  z-index: 1000;
+  max-width: 450px;
+  margin: 15px 20px 15px auto;
+  padding: 25px;
+  background: #F5EFE6;
+  color: #324237;
+  border: 1px solid #A6B09C;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.accessibility-panel h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.accessibility-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.accessibility-option select {
+  padding: 8px;
+  border: 1px solid #324237;
+  border-radius: 5px;
+  background: #FFFFFF;
+  color: #324237;
+  max-width: 160px;
+}
+
+#reset-accessibility {
+  background: #324237;
+  color: #FFFFFF;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+/* TASTATURFOKUS */
+
+.accessibility-toggle:focus-visible,
+.accessibility-panel button:focus-visible,
+.accessibility-panel select:focus-visible,
+.accessibility-panel input:focus-visible {
+  outline: 3px solid #C9926E;
+  outline-offset: 3px;
+}
+
+/* ==========================
+
+   GLOBAL DARK MODE
+
+========================== */
+
+body.dark-mode {
+  background-color: #19271F;
+  color: #F5EFE6;
+}
+
+body.dark-mode .header,
+body.dark-mode .footer {
+  background-color: #19271F;
+  color: #F5EFE6;
+}
+
+body.dark-mode .header a,
+body.dark-mode .header .logo,
+body.dark-mode .header .logo span,
+body.dark-mode .nav-links a,
+body.dark-mode .footer a {
+  color: #F5EFE6;
+}
+
+body.dark-mode .accessibility-panel {
+  background: #26382D;
+  color: #F5EFE6;
+  border-color: #A6B09C;
+}
+
+body.dark-mode .accessibility-toggle,
+body.dark-mode #reset-accessibility {
+  background: #A6B09C;
+  color: #19271F;
+  border-color: #A6B09C;
+}
+
+/* ARTIKLER */
+
+body.dark-mode .article-author,
+body.dark-mode .article-credits {
+  background: #19271F;
+}
+
+body.dark-mode .article-content,
+body.dark-mode .article-content h2,
+body.dark-mode .article-content p,
+body.dark-mode .article-content li {
+  color: #F5EFE6;
+}
+
+
+/* SPRING TIL HOVEDINDHOLD */
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 15px;
+  z-index: 9999;
+
+  background: #324237;
+  color: #FFFFFF;
+
+  padding: 12px 20px;
+  border-radius: 5px;
+}
+
+.skip-link:focus {
+  top: 15px;
+}
+
+
+/* =========================================
+   STØRRE TILGÆNGELIGHEDSMENU
+========================================= */
+
+.accessibility-panel {
+  box-sizing: border-box;
+  position: fixed;
+  top: 90px;
+  right: 25px;
+  z-index: 9999;
+
+  width: min(440px, calc(100vw - 30px));
+  max-height: calc(100dvh - 110px);
+  overflow-y: auto;
+
+  padding: 30px;
+
+  background: #F5EFE6;
+  color: #324237;
+
+  border: 2px solid #A6B09C;
+  border-radius: 18px;
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+/* Respekter HTML's hidden-attribut */
+.accessibility-panel[hidden] {
+  display: none !important;
+}
+
+/* Overskrift */
+.accessibility-panel h2 {
+  font-family: "DM Sans", sans-serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.3;
+
+  color: #324237;
+  margin: 0 0 25px;
+}
+
+/* Hver indstilling */
+.accessibility-option {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+
+  padding: 18px 0;
+  border-bottom: 1px solid #A6B09C;
+}
+
+/* Tydelige labels */
+.accessibility-option label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #324237;
+}
+
+/* Større afkrydsningsfelter */
+.accessibility-option input[type="checkbox"] {
+  width: 26px;
+  height: 26px;
+  margin: 0;
+  accent-color: #324237;
+  cursor: pointer;
+}
+
+/* Større dropdown */
+.accessibility-option select {
+  width: 100%;
+  min-height: 50px;
+  padding: 12px 15px;
+
+  border: 2px solid #A6B09C;
+  border-radius: 9px;
+
+  background: #FFFFFF;
+  color: #324237;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Nulstil-knap */
+#reset-accessibility {
+  display: block;
+  width: 100%;
+  min-height: 50px;
+  margin-top: 25px;
+  padding: 12px 20px;
+
+  background: #324237;
+  color: #FFFFFF;
+
+  border: 2px solid #324237;
+  border-radius: 9px;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#reset-accessibility:hover {
+  background: #465B4B;
+}
+
+/* Selve knappen i navigationen */
+.accessibility-toggle {
+  min-height: 46px;
+  padding: 11px 17px;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+/* Tydeligt fokus ved tastaturnavigation */
+.accessibility-panel :is(
+  input, select, button
+):focus-visible,
+.accessibility-toggle:focus-visible {
+  outline: 3px solid #C9926E;
+  outline-offset: 4px;
+}
+
+/* =========================================
+   MOBIL
+========================================= */
+
+@media (max-width: 600px) {
+  .accessibility-panel {
+    top: 75px;
+    left: 15px;
+    right: 15px;
+
+    width: auto;
+    max-height: calc(100dvh - 90px);
+
+    padding: 24px 20px;
+    border-radius: 14px;
+  }
+
+  .accessibility-panel h2 {
+    font-size: 1.4rem;
+  }
+
+  .accessibility-option {
+    padding: 15px 0;
+  }
+
+  .accessibility-toggle {
+    font-size: 0.95rem;
+  }
+}
+
+
+
+/* ===================================
+   Forside
+=================================== */
+
+.hero {
+  padding: 110px 20px;
+  text-align: center;
+  background-color: var(--sand);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 12px;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 5vw, 56px);
+  max-width: 750px;
+  margin: 20px auto;
+}
+
+.hero-text {
+  max-width: 550px;
+  margin: 20px auto 35px;
+}
+
+.button {
+  display: inline-block;
+  background-color: var(--forest);
+  color: #324237;
+  padding: 13px 28px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color:#A6B09C;
+}
+
+/* SEKTIONER */
+
+.categories,
+.blog-section,
+.about {
+  padding: 75px 7%;
+  text-align: center;
+}
+
+.category-grid,
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  max-width: 1100px;
+  margin: 35px auto 0;
+}
+
+.category-card {
+  background-color: var(--sand);
+  padding: 35px 20px;
+  border-radius: 8px;
+}
+
+.category-card span {
+  font-size: 36px;
+}
+
+.blog-section {
+  background-color:#F5EFE6;
+}
+
+.blog-card {
+  background-color: var(--cream);
+  padding: 25px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.post-type {
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.about {
+  background-color: var(--sage);
+}
+
+.about p {
+  max-width: 650px;
+  margin: 15px auto;
+}
+
+/* FOOTER */
+
+.site-footer {
+  background: #324237;
+  color: #F5EFE6;
+  padding: 65px 6% 25px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 40px;
+}
+
+.footer-column h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.footer-column h3 {
+  font-family: "DM Sans", sans-serif;
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+}
+
+.footer-column p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #F5EFE6;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column li {
+  margin-bottom: 12px;
+}
+
+.footer-column a {
+  color: #F5EFE6;
+  text-decoration: underline;
+  text-decoration-color: #A6B09C;
+  text-underline-offset: 5px;
+  line-height: 1.7;
+}
+
+.footer-column a:hover {
+  color: #E7D8C4;
+}
+
+.footer-column a:focus-visible {
+  outline: 3px solid #C9926E;
+  outline-offset: 4px;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 45px auto 0;
+  padding-top: 25px;
+  border-top: 1px solid #A6B09C;
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size: 0.85rem;
+  color: #F5EFE6;
+}
+
+@media (max-width: 900px) {
+  .footer-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 35px;
+  }
+}
+
+@media (max-width: 550px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .site-footer {
+    padding: 45px 7% 20px;
+  }
+}
+
+/* Footer-overskrift på Om os */
+
+.site-footer .footer-column h2 {
+  color: #F5EFE6;
+  opacity: 1;
+  visibility: visible;
+  display: block;
+  transform: none;
+}
+
+
+/* MOBIL */
+
+@media (max-width: 700px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .nav-links {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .hero {
+    padding: 75px 20px;
+  }
+
+  .category-grid,
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+
+/* =====================================
+   FOOTER - MØRK TILSTAND
+===================================== */
+
+/* Understøtter dark-mode på body eller html */
+body.dark-mode .site-footer,
+html.dark-mode .site-footer {
+  background-color: #354A3C;
+  color: #F5EFE6;
+
+  border-top: 2px solid #A6B09C;
+}
+
+/* Overskrifter */
+body.dark-mode .site-footer h2,
+body.dark-mode .site-footer h3,
+html.dark-mode .site-footer h2,
+html.dark-mode .site-footer h3 {
+  color: #F5EFE6;
+}
+
+/* Brødtekst og copyright */
+body.dark-mode .site-footer p,
+html.dark-mode .site-footer p {
+  color: #F5EFE6;
+}
+
+/* Links */
+body.dark-mode .site-footer a,
+html.dark-mode .site-footer a {
+  color: #F5EFE6;
+  text-decoration-color: #A6B09C;
+}
+
+/* Hover-effekt */
+body.dark-mode .site-footer a:hover,
+html.dark-mode .site-footer a:hover {
+  color: #E7D8C4;
+}
+
+/* Linje over copyright */
+body.dark-mode .footer-bottom,
+html.dark-mode .footer-bottom {
+  border-top-color: #A6B09C;
+}
+
+
+
+/* TYPOGRAFI */
+
+body {
+  font-family: "DM Sans", Arial, sans-serif;
+}
+
+h1, h2, h3, .logo {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+h2 {
+  font-size: clamp(32px, 4vw, 46px);
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+/* LÆS MERE KNAPPER */
+
+.read-more {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 11px 20px;
+  background-color: #324237;
+  color: #FFFFFF;
+  
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.read-more:hover {
+  background-color: #243329;
+}
+
+.read-more:focus-visible {
+  outline: 3px solid #C9926E;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .read-more {
+    transition: none;
+  }
+}
+
+/* NY HERO-SEKTION */
+
+.hero {
+  min-height: 820px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 100px 25px;
+
+  background-image:
+    linear-gradient(
+      rgba(20, 35, 25, 0.55),
+      rgba(20, 35, 25, 0.55)
+    ),
+    url("images/hero.jpg");
+
+  background-size: cover;
+  background-position: center;
+
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 6vw, 76px);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.hero-text {
+  font-size: 17px;
+  max-width: 560px;
+}
+
+.hero .button {
+  background-color: #F5EFE6;
+  color: #324237;
+  font-weight: 600;
+}
+
+.hero .button:hover {
+  background-color: #E7D8C4;
+}
+
+/* BLOGKORT */
+
+.blog-card {
+  padding: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #F5EFE6;
+  text-align: left;
+}
+
+.blog-image {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  display: block;
+}
+
+.blog-content {
+  padding: 25px;
+}
+
+.post-type {
+  color: #79503D;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+}
+
+.blog-card h3 {
+  margin: 10px 0;
+}
+
+.reading-time {
+  display: block;
+  margin-top: 20px;
+  font-size: 13px;
+  color: #4B594F;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  max-width: 1100px;
+  margin: 35px auto;
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.read-more {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+/* BLOGKORT - ENS OPSTILLING */
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+  align-items: stretch;
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Ens størrelse på billeder */
+
+.blog-image {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Indhold i blogkort */
+
+.blog-content {
+  display: grid;
+  grid-template-rows:
+    minmax(3em, auto)
+    minmax(3.5em, auto)
+    1fr
+    auto
+    auto;
+  gap: 15px;
+  flex: 1;
+  padding: 25px;
+}
+
+/* Fjern forskellige standardmargener */
+
+.blog-content .post-type,
+.blog-content h3,
+.blog-description,
+.reading-time {
+  margin: 0;
+}
+
+/* Overskrifter */
+
+.blog-content h3 {
+  font-size: 26px;
+  line-height: 1.25;
+}
+
+/* Beskrivelser */
+
+.blog-description {
+  line-height: 1.7;
+}
+
+/* Læsetid */
+
+.reading-time {
+  font-size: 13px;
+  color: #4B594F;
+}
+
+/* Knapper */
+
+.blog-content .read-more {
+  justify-self: start;
+  align-self: end;
+  margin-top: 0;
+}
+
+/* OM BLOOM WITHIN */
+
+.about {
+  background-color: #A6B09C;
+  padding: 45px 7%;
+  text-align: left;
+}
+
+.about-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  align-items: center;
+  gap: 50px;
+}
+
+/* TEKST */
+
+.about-text {
+  max-width: 500px;
+}
+
+.about-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #654332;
+}
+
+.about-text h2 {
+  font-size: clamp(30px, 4vw, 42px);
+  margin: 10px 0 20px;
+}
+
+.about-text p {
+  margin: 0 0 15px;
+  line-height: 1.7;
+}
+
+/* KNAP */
+
+.about-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 22px;
+
+  background-color: #324237;
+  color: #FFFFFF;
+
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+.about-button:hover {
+  background-color: #243329;
+}
+
+/* BILLEDE */
+
+.about-image img {
+  width: 100%;
+  max-height: 260px;
+  object-fit: contain;
+  display: block;
+}
+
+/* MOBILVISNING */
+
+@media (max-width: 700px) {
+  .hero {
+    min-height: 500px;
+    padding: 70px 20px;
+  }
+
+  .hero h1 {
+    font-size: 44px;
+  }
+
+  .hero-text {
+    font-size: 16px;
+  }
+
+  .blog-image {
+    height: 210px;
+  }
+
+  .categories,
+  .blog-section,
+  .about {
+    padding: 55px 20px;
+  }
+  
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-content {
+    grid-template-rows: auto auto 1fr auto auto;
+  }
+
+ .about {
+    padding: 40px 20px;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .about-image img {
+    max-height: 180px;
+  }
+}
+
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+
+.logo img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.logo span {
+    font-family: Georgia, serif;
+    font-size: 26px;
+    color: #324237;
+    font-weight: 500;
+}
+
+
+/* ===================================
+
+   Historien bag
+
+=================================== */
+
+.about-page {
+  --about-forest: #324237;
+  --about-sage: #A6B09C;
+  --about-clay: #C9926E;
+  --about-sand: #E7D8C4;
+  --about-parchment: #F5EFE6;
+
+  background-color: var(--about-parchment);
+  color: var(--about-forest);
+  font-family: "DM Sans", sans-serif;
+}
+
+.about-page *,
+.about-page *::before,
+.about-page *::after {
+  box-sizing: border-box;
+}
+
+.about-page .about-container {
+  width: min(1120px, 90%);
+  margin-inline: auto;
+}
+
+/* TYPOGRAPHY */
+
+.about-page .about-eyebrow {
+  display: block;
+  color: #9B6545;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.about-page h1,
+.about-page h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--about-forest);
+}
+
+.about-page .about-text h2,
+.about-page .about-centered h2 {
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  margin: 0 0 25px;
+}
+
+.about-page .about-text p,
+.about-page .about-centered p {
+  font-size: 1rem;
+  line-height: 1.9;
+  margin: 0 0 18px;
+}
+
+/* HERO */
+
+/* HERO - OM OS */
+
+
+/* ==================================
+
+   OM OS - HERO
+
+================================== */
+
+
+.about-page .about-hero {
+  min-height: 85vh;
+  min-height: 85svh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 110px 20px;
+  text-align: center;
+
+  background:
+    linear-gradient(
+      rgba(20, 30, 23, 0.55),
+      rgba(20, 30, 23, 0.55)
+    ),
+
+    url("images/om-os-hero.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Lille tekst øverst */
+
+.about-page .about-hero .eyebrow {
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 12px;
+  margin: 0 0 20px;
+}
+
+/* Overskrift */
+
+.about-page .about-hero h1 {
+  color: white;
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(48px, 6vw, 86px);
+  font-weight: 600;
+  line-height: 1.1;
+
+  max-width: 950px;
+  margin: 20px auto 35px;
+}
+
+/* Beskrivelse */
+
+.about-page .about-hero .hero-text {
+  color: white;
+  font-family: "DM Sans", sans-serif;
+
+  font-size: clamp(16px, 1.8vw, 22px);
+  line-height: 1.8;
+
+  max-width: 750px;
+  margin: 0 auto 45px;
+}
+
+/* Knap */
+
+.about-page .about-hero .button {
+  display: inline-block;
+  background-color: var(--parchment, #F5EFE6);
+  color: var(--forest, #324237);
+
+  padding: 15px 32px;
+  border-radius: 4px;
+
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.about-page .about-hero .button:hover {
+  background-color: #E7D8C4;
+}
+
+/* MOBIL */
+
+@media (max-width: 700px) {
+  .about-page .about-hero {
+    min-height: 75svh;
+    padding: 80px 20px;
+  }
+
+  .about-page .about-hero h1 {
+    font-size: clamp(38px, 9vw, 56px);
+    margin-bottom: 25px;
+  }
+
+  .about-page .about-hero .hero-text {
+    font-size: 16px;
+    margin-bottom: 35px;
+  }
+}
+
+.about-page .about-button {
+  display: inline-block;
+  background: var(--about-forest);
+  color: #FFFFFF;
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.about-page .about-button:hover {
+  background: #455B4B;
+  transform: translateY(-3px);
+}
+
+.about-page .about-button:focus-visible {
+  outline: 3px solid var(--about-clay);
+  outline-offset: 4px;
+}
+
+/* CONTENT SECTIONS */
+
+.about-page .about-section {
+  padding: 110px 0;
+}
+
+.about-page .about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: 80px;
+}
+
+.about-page .about-image {
+  width: 520px;
+  max-width: 100%;
+  height: 460px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.about-page .about-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+
+.about-page .about-sand {
+  background: var(--about-sand);
+}
+
+.about-page .about-sage {
+  background: var(--about-sage);
+}
+
+.about-page .about-centered {
+  max-width: 760px;
+  text-align: center;
+}
+
+.about-page .about-emphasis {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem !important;
+  font-style: italic;
+  font-weight: 600;
+  margin-top: 30px !important;
+}
+
+/* ENDING */
+
+.about-page .about-ending {
+  background-color:#A6B09C;
+  padding: 100px 0;
+  color: #324237;
+}
+
+.about-page .about-ending-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 80px;
+}
+
+.about-page .about-ending-text {
+  text-align: left;
+}
+
+.about-page .about-ending .about-eyebrow {
+  color: #79503A;
+  margin-bottom: 25px;
+}
+
+.about-page .about-ending h2 {
+  color: #324237;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.8rem, 4vw, 4rem);
+  line-height: 1.15;
+  margin-bottom: 30px;
+}
+
+.about-page .about-ending p {
+  color: #324237;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
+
+.about-page .about-ending .about-signature {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  font-style: italic;
+  margin-top: 35px;
+}
+
+.about-page .about-ending-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-page .about-ending-image img {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* MOBIL */
+
+@media (max-width: 700px) {
+  .about-page .about-hero {
+    min-height: 550px;
+    padding: 80px 20px;
+  }
+
+  .about-page .about-hero h1 {
+    font-size: clamp(2.8rem, 9vw, 4rem);
+  }
+
+  .about-page .about-hero p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .about-page .about-ending {
+    padding: 65px 0;
+  }
+
+  .about-page .about-ending-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-page .about-ending-text {
+    text-align: center;
+  }
+
+  .about-page .about-ending-image img {
+    max-width: 230px;
+  }
+}
+
+@media (max-width: 700px) {
+  .about-page .about-hero {
+    min-height: 450px;
+    padding: 90px 0;
+  }
+
+  .about-page .about-section {
+    padding: 65px 0;
+  }
+
+  .about-page .about-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .about-page .about-image img {
+    height: 340px;
+  }
+
+  .about-page .about-sand .about-image {
+    grid-row: 1;
+  }
+
+  .about-page .about-text h2,
+  .about-page .about-centered h2 {
+    font-size: 2.7rem;
+  }
+
+  .about-page .about-ending {
+    padding: 75px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-page .about-button {
+    transition: none;
+  }
+
+  .about-page .about-button:hover {
+    transform: none;
+  }
+}
+
+/* Ovale billeder på mobil */
+
+@media (max-width: 700px) {
+  .about-page .about-image {
+    width: 380px;
+    max-width: 90%;
+    height: 220px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+
+  .about-page .about-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    aspect-ratio: auto;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
+
+/* =========================
+
+   KATEGORISIDE
+
+========================= */
+
+/* HERO */
+
+.categories-page .categories-hero {
+  background-color: #E7D8C4;
+  text-align: center;
+  padding: 110px 20px 100px;
+}
+
+.categories-page .categories-hero h1 {
+  font-family: "Cormorant Garamond", serif;
+  color: #324237;
+  font-size: clamp(40px, 5vw, 65px);
+  margin: 20px auto;
+}
+
+.categories-page .categories-hero > p:last-child {
+  max-width: 650px;
+  margin: 0 auto;
+  color: #324237;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+/* KATEGORIER */
+
+.categories-page .categories-section {
+  background-color: #F5EFE6;
+  padding: 90px 20px;
+}
+
+.categories-page .categories-container {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.categories-page .categories-intro {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.categories-page .categories-intro h2 {
+  font-family: "Cormorant Garamond", serif;
+  color: #324237;
+  font-size: clamp(34px, 4vw, 48px);
+  margin-top: 12px;
+}
+
+/* GRID - 2 KOLONNER */
+
+.categories-page .categories-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 35px;
+}
+
+/* KATEGORIKORT */
+
+.categories-page .category-card {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.categories-page .category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(50, 66, 55, 0.12);
+}
+
+/* BILLEDER */
+
+.categories-page .category-card img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  display: block;
+  border-radius: 5%;
+}
+
+/* TEKST */
+
+.categories-page .category-content {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.categories-page .category-content h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 32px;
+  color: #324237;
+  margin: 0 0 15px;
+}
+
+.categories-page .category-content p {
+  color: #324237;
+  font-size: 15px;
+  line-height: 1.8;
+  margin: 0 0 25px;
+}
+
+/* LINK */
+
+.categories-page .category-link {
+  margin-top: auto;
+  color: #324237;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+  padding: 6px 0;
+  border-bottom: 1px solid #324237;
+}
+
+.categories-page .category-link:hover {
+  color: #946344;
+}
+
+.categories-page .category-link:focus-visible {
+  outline: 3px solid #946344;
+  outline-offset: 4px;
+}
+
+/* MOBIL */
+
+@media (max-width: 768px) {
+  .categories-page .categories-hero {
+    padding: 80px 20px;
+  }
+
+  .categories-page .categories-section {
+    padding: 65px 20px;
+  }
+
+  .categories-page .categories-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .categories-page .category-card img {
+    height: 230px;
+  }
+
+  .categories-page .category-content {
+    padding: 25px;
+  }
+
+  .categories-page .category-content h3 {
+    font-size: 29px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .categories-page .category-card {
+    transition: none;
+  }
+
+  .categories-page .category-card:hover {
+    transform: none;
+  }
+}
+
+/* =========================
+   BLOGSIDE - BLOOM WITHIN
+========================= */
+
+.blog-page .blog-container {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+/* HERO */
+
+.blog-page .blog-hero {
+  background-color: #E7D8C4;
+  text-align: center;
+  padding: 110px 20px;
+}
+
+.blog-page .blog-hero h1 {
+  font-family: "Cormorant Garamond", serif;
+  color: #324237;
+  font-size: clamp(40px, 5vw, 65px);
+  margin: 20px auto;
+}
+
+.blog-page .blog-hero-text {
+  max-width: 650px;
+  margin: 0 auto;
+  color: #324237;
+  line-height: 1.9;
+}
+
+/* FREMHÆVET INDLÆG */
+
+.blog-page .blog-featured {
+  background-color: #F5EFE6;
+  padding: 85px 20px;
+}
+
+.blog-page .blog-featured > .blog-container > .eyebrow {
+  margin-bottom: 25px;
+}
+
+.blog-page .featured-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #FFFFFF;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.blog-page .featured-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  object-fit: cover;
+}
+
+.blog-page .featured-content {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.blog-page .blog-category {
+  color: #946344;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.blog-page .featured-content h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(32px, 4vw, 46px);
+  color: #324237;
+  margin: 18px 0;
+}
+
+.blog-page .featured-content p {
+  color: #324237;
+  line-height: 1.9;
+  margin-bottom: 18px;
+}
+
+.blog-page .blog-reading-time {
+  color: #56645A;
+  font-size: 13px;
+}
+
+.blog-page .featured-content .button {
+  margin-top: 25px;
+}
+
+/* KNAP PÅ FREMHÆVET BLOGINDLÆG */
+
+.blog-page .featured-content .button {
+  display: inline-block;
+  background-color: #324237;
+  color: #ffffff;
+  padding: 13px 28px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+/* NÅR MUSEN HOLDES OVER KNAPPEN */
+
+.blog-page .featured-content .button:hover {
+  background-color: #243329;
+  color: #FFFFFF;
+}
+
+/* NÅR MAN NAVIGERER MED TASTATURET */
+
+.blog-page .featured-content .button:focus-visible {
+  outline: 3px solid #C9926E;
+  outline-offset: 4px;
+}
+
+/* BLOGOVERSIGT */
+
+.blog-page .blog-list {
+  background-color: #F5EFE6;
+  padding: 30px 20px 100px;
+}
+
+.blog-page .blog-section-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.blog-page .blog-section-heading h2 {
+  font-family: "Cormorant Garamond", serif;
+  color: #324237;
+  font-size: clamp(36px, 4vw, 50px);
+  margin: 15px 0;
+}
+
+.blog-page .blog-section-heading > p:last-child {
+  color: #324237;
+  line-height: 1.8;
+}
+
+/* SØGNING */
+
+.blog-page .blog-search {
+  max-width: 550px;
+  margin: 0 auto 30px;
+}
+
+.blog-page .blog-search label {
+  display: block;
+  margin-bottom: 10px;
+  color: #324237;
+  font-weight: 600;
+}
+
+.blog-page .blog-search input {
+  width: 100%;
+  padding: 15px 18px;
+  border: 1px solid #A6B09C;
+  border-radius: 6px;
+  background: #FFFFFF;
+  color: #324237;
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+}
+
+.blog-page .blog-search input:focus-visible {
+  outline: 3px solid #946344;
+  outline-offset: 3px;
+}
+
+/* KATEGORIFILTRE */
+
+.blog-page .blog-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 45px;
+}
+
+.blog-page .filter-btn {
+  background-color: #FFFFFF;
+  border: 1px solid #A6B09C;
+  color: #324237;
+  border-radius: 30px;
+  padding: 11px 18px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.blog-page .filter-btn:hover,
+.blog-page .filter-btn.active {
+  background-color: #324237;
+  color: #FFFFFF;
+}
+
+.blog-page .filter-btn:focus-visible {
+  outline: 3px solid #946344;
+  outline-offset: 3px;
+}
+
+/* BLOG GRID */
+
+.blog-page .blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+}
+
+/* BLOGKORT */
+
+.blog-page .blog-card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-page .blog-card[hidden] {
+  display: none;
+}
+
+.blog-page .blog-card img {
+  display: block;
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+.blog-page .blog-card-content {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.blog-page .blog-card h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 29px;
+  color: #324237;
+  margin: 14px 0;
+}
+
+.blog-page .blog-card-content p {
+  color: #324237;
+  line-height: 1.8;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.blog-page .blog-read-link {
+  color: #324237;
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid #324237;
+  padding-bottom: 5px;
+  margin-top: 18px;
+  align-self: flex-start;
+}
+
+.blog-page .blog-read-link:hover {
+  color: #946344;
+}
+
+.blog-page .blog-read-link:focus-visible {
+  outline: 3px solid #946344;
+  outline-offset: 4px;
+}
+
+.blog-page .blog-no-results {
+  text-align: center;
+  color: #324237;
+  padding: 35px 15px;
+}
+
+.blog-page .blog-no-results[hidden] {
+  display: none;
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+  .blog-page .blog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* MOBIL */
+
+@media (max-width: 768px) {
+  .blog-page .blog-hero {
+    padding: 80px 20px;
+  }
+
+  .blog-page .blog-featured {
+    padding: 60px 20px;
+  }
+
+  .blog-page .featured-card {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-page .featured-card img {
+    height: 250px;
+    min-height: 0;
+  }
+
+  .blog-page .featured-content {
+    padding: 30px 25px;
+  }
+
+  .blog-page .blog-list {
+    padding: 20px 20px 70px;
+  }
+
+  .blog-page .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .blog-page .blog-card img {
+    height: 240px;
+  }
+
+  .blog-page .blog-filters {
+    gap: 8px;
+  }
+
+  .blog-page .filter-btn {
+    padding: 10px 14px;
+  }
+}
+
+/* =========================
+   BLOGARTIKLER
+========================= */
+
+.article-page {
+  background-color: #F5EFE6;
+}
+
+/* ARTIKEL HEADER */
+
+.article-page .article-header {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 70px 20px 55px;
+  text-align: center;
+}
+
+.article-page .article-back {
+  display: inline-block;
+  margin-bottom: 50px;
+  color: #324237;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.article-page .article-back:hover {
+  text-decoration: underline;
+}
+
+.article-page .article-category {
+  color: #946344;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.article-page .article-header h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(42px, 6vw, 70px);
+  color: #324237;
+  line-height: 1.1;
+  margin: 22px auto;
+}
+
+.article-page .article-intro {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #324237;
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+/* STORT ARTIKELBILLEDE */
+
+.article-page .article-image {
+  max-width: 1150px;
+  margin: 0 auto 65px;
+  padding: 0 20px;
+}
+
+.article-page .article-image img {
+  display: block;
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* ==========================
+   TILGÆNGELIGHED - ARTIKLER
+========================== */
+
+.article-page .reading-tools {
+  max-width: 900px;
+  margin: 0 auto 55px;
+  padding: 30px;
+  background: #E7D8C4;
+  border-radius: 12px;
+}
+
+.article-page .reading-tools h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 32px;
+  color: #324237;
+  margin-bottom: 10px;
+}
+
+.article-page .reading-tools p {
+  color: #324237;
+  line-height: 1.7;
+}
+
+.article-page .reading-tools-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.article-page .reading-tools button {
+  background: #324237;
+  color: #FFFFFF;
+  border: 2px solid #324237;
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.article-page .reading-tools button:hover {
+  background: #243329;
+  color: #FFFFFF;
+}
+
+.article-page .reading-tools button:focus-visible {
+  outline: 3px solid #C9926E;
+  outline-offset: 3px;
+}
+
+.article-page .reading-tools button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.article-page .reading-tools button[aria-pressed="true"] {
+  background: #FFFFFF;
+  color: #324237;
+}
+
+.article-page .reading-status {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+/* ==========================
+   DARK MODE - BLOGINDLÆG
+========================== */
+
+/* ARTIKLENS BAGGRUND */
+
+body.article-page.dark-mode {
+  background-color: #19271F;
+  color: #F5EFE6;
+}
+
+/* ARTIKLENS TEKST */
+
+body.article-page.dark-mode .article-header h1,
+body.article-page.dark-mode .article-intro,
+body.article-page.dark-mode .article-category,
+body.article-page.dark-mode .article-back,
+body.article-page.dark-mode .article-content h2,
+body.article-page.dark-mode .article-content p,
+body.article-page.dark-mode .article-content li {
+  color: #F5EFE6;
+}
+
+/* LÆSEVÆRKTØJ OG INFOBOKSE */
+
+body.article-page.dark-mode .reading-tools,
+body.article-page.dark-mode .article-quote,
+body.article-page.dark-mode .article-note {
+  background-color: #26382D;
+}
+
+/* TEKST I BOKSE */
+
+body.article-page.dark-mode .reading-tools h2,
+body.article-page.dark-mode .reading-tools p,
+body.article-page.dark-mode .article-quote p,
+body.article-page.dark-mode .article-note h2,
+body.article-page.dark-mode .article-note p {
+  color: #F5EFE6;
+}
+
+/* KNAPPER I LÆSEVÆRKTØJET */
+
+body.article-page.dark-mode .reading-tools button {
+  background-color: #F5EFE6;
+  color: #19271F;
+  border-color: #F5EFE6;
+}
+
+/* HOVER */
+
+body.article-page.dark-mode .reading-tools button:hover {
+  background-color: #D9E3D7;
+  color: #19271F;
+}
+
+/* AKTIVE KNAPPER */
+
+body.article-page.dark-mode
+.reading-tools button[aria-pressed="true"] {
+  background-color: #A6B09C;
+  color: #19271F;
+}
+
+/* ARTIKELTEKST */
+
+.article-page .article-content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px 90px;
+}
+
+.article-page .article-content h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 36px;
+  color: #324237;
+  margin: 45px 0 20px;
+  line-height: 1.2;
+}
+
+.article-page .article-content p {
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  line-height: 2;
+  color: #324237;
+  margin-bottom: 22px;
+}
+
+.article-page .article-content ul {
+  padding-left: 25px;
+  margin: 20px 0 35px;
+}
+
+.article-page .article-content li {
+  color: #324237;
+  line-height: 1.9;
+  margin-bottom: 15px;
+}
+
+/* REFLEKSIONSBOKS */
+
+.article-page .article-quote {
+  background-color: #E7D8C4;
+  padding: 35px;
+  margin: 45px 0;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.article-page .article-quote p {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 32px;
+  font-style: italic;
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* FAGLIG BEMÆRKNING */
+
+.article-page .article-note {
+  background-color: #E7D8C4;
+  border-left: 4px solid #324237;
+  padding: 25px 30px;
+  margin-top: 55px;
+}
+
+.article-page .article-note h2 {
+  font-size: 27px;
+  margin: 0 0 12px;
+}
+
+.article-page .article-note p {
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* AFSLUTNING */
+
+.article-page .article-ending {
+  background-color: #A6B09C;
+  padding: 85px 20px;
+  text-align: center;
+}
+
+.article-page .article-ending h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(34px, 4vw, 48px);
+  color: #324237;
+  margin: 18px auto;
+}
+
+.article-page .article-ending > p {
+  color: #324237;
+  line-height: 1.8;
+}
+
+.article-page .article-ending .button {
+  display: inline-block;
+  margin-top: 25px;
+  background-color: #324237;
+  color: #FFFFFF;
+  padding: 13px 28px;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.article-page .article-ending .button:hover {
+  background-color: #243329;
+  color: #FFFFFF;
+}
+
+/* FORFATTERFELT */
+
+.article-page .article-author {
+  background: #F5EFE6;
+  padding: 0 20px 80px;
+}
+
+.article-page .author-card {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 35px;
+  background: #E7D8C4;
+  border-radius: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+}
+
+.article-page .author-avatar {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #324237;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 30px;
+}
+
+.article-page .author-information h2 {
+  font-family: "Cormorant Garamond", serif;
+  color: #324237;
+  font-size: 30px;
+  margin: 5px 0 12px;
+}
+
+.article-page .author-information p {
+  color: #324237;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.article-page .author-label {
+  font-size: 12px !important;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+
+.article-page .author-link {
+  display: inline-block;
+  margin-top: 15px;
+  color: #324237;
+  font-weight: 600;
+  text-underline-offset: 4px;
+}
+
+.article-page.dark-mode .article-author {
+  background: #19271F;
+}
+
+.article-page.dark-mode .author-card {
+  background: #26382D;
+}
+
+.article-page.dark-mode .author-information h2,
+.article-page.dark-mode .author-information p,
+.article-page.dark-mode .author-link {
+  color: #F5EFE6;
+}
+
+.article-page.dark-mode .author-avatar {
+  background: #A6B09C;
+  color: #19271F;
+}
+
+/* ==========================
+   BIDRAGYDERE OG CREDITS
+========================== */
+
+.article-page .article-credits {
+  background: #F5EFE6;
+  padding: 0 20px 85px;
+}
+
+.article-page .article-credits > h2 {
+  font-family: "Cormorant Garamond", serif;
+  color: #324237;
+  font-size: clamp(32px, 4vw, 42px);
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.article-page .credits-intro {
+  max-width: 650px;
+  margin: 0 auto 35px;
+  text-align: center;
+  color: #324237;
+  line-height: 1.8;
+}
+
+.article-page .credits-grid {
+  max-width: 950px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.article-page .credit-card {
+  background: #E7D8C4;
+  padding: 28px;
+  border-radius: 10px;
+}
+
+.article-page .credit-type {
+  display: block;
+  color: #825536;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.article-page .credit-card h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 27px;
+  color: #324237;
+  margin-bottom: 12px;
+}
+
+.article-page .credit-card p {
+  color: #324237;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* DARK MODE */
+
+.article-page.dark-mode .article-credits {
+  background: #19271F;
+}
+
+.article-page.dark-mode .article-credits > h2,
+.article-page.dark-mode .credits-intro {
+  color: #F5EFE6;
+}
+
+.article-page.dark-mode .credit-card {
+  background: #26382D;
+}
+
+.article-page.dark-mode .credit-card h3,
+.article-page.dark-mode .credit-card p {
+  color: #F5EFE6;
+}
+
+.article-page.dark-mode .credit-type {
+  color: #E7D8C4;
+}
+
+/* NAVIGATION I DARK MODE */
+
+.article-page.dark-mode .header {
+  background-color: #19271F;
+}
+
+.article-page.dark-mode .header .logo,
+.article-page.dark-mode .header .logo span,
+.article-page.dark-mode .header .nav-links a {
+  color: #F5EFE6;
+}
+
+/* HOVER */
+
+.article-page.dark-mode .header .nav-links a:hover {
+  color: #E7D8C4;
+}
+
+/* TASTATURNAVIGATION */
+
+.article-page.dark-mode .header a:focus-visible {
+  outline: 3px solid #C9926E;
+  outline-offset: 4px;
+}
+
+/* MOBIL */
+
+@media (max-width: 768px) {
+  .article-page .article-header {
+    padding: 45px 20px 35px;
+  }
+
+  .article-page .article-back {
+    margin-bottom: 35px;
+  }
+
+  .article-page .article-image {
+    margin-bottom: 40px;
+  }
+
+  .article-page .article-image img {
+    height: 270px;
+  }
+
+  .article-page .article-content {
+    padding-bottom: 60px;
+  }
+
+  .article-page .article-content h2 {
+    font-size: 31px;
+  }
+
+  .article-page .article-content p {
+    font-size: 15px;
+    line-height: 1.9;
+  }
+
+  .article-page .article-quote {
+    padding: 30px 20px;
+  }
+
+  .article-page .article-quote p {
+    font-size: 27px;
+  }
+
+  .article-page .article-ending {
+    padding: 65px 20px;
+  }
+
+  .article-page .reading-tools {
+    margin: 0 20px 40px;
+    padding: 22px;
+  }
+
+  .article-page .reading-tools-buttons button {
+    flex: 1 1 135px;
+  }
+
+  .article-page .author-card {
+    flex-direction: column;
+    padding: 25px;
+  }
+
+
+  .article-page .credits-grid {
+    grid-template-columns: 1fr;
+}
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .article-page .credits-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ========================================================
+   BLOOM WITHIN - FÆLLES TILGÆNGELIGHED (ALLE SIDER)
+   Indstillingerne styres af klasser på body/html i script.js
+======================================================== */
+
+/* Sørg for at skjulte elementer forbliver skjult */
+.accessibility-panel[hidden] { display: none; }
+.accessibility-panel { max-width: min(450px, calc(100% - 30px)); }
+
+/* Undgå at store tekster klippes i header og kort */
+.header { flex-wrap: wrap; }
+.nav-links { align-items: center; }
+.blog-page .featured-card, .blog-page .blog-card,
+.categories-page .category-card { min-width: 0; }
+
+/* GLOBAL SKRIFTSTØRRELSE: rem-skala + understøttelse af px-tekst */
+html.font-large { font-size: 112.5%; }
+html.font-extra-large { font-size: 125%; }
+
+/* Basistekst og artikeltekst skaleres med brugerens valg */
+body { font-size: 1rem; }
+.article-page .article-content p { font-size: 1rem; }
+.article-page .article-content li { font-size: 1rem; }
+.article-page .article-intro { font-size: 1.0625rem; }
+.article-page .article-note p,
+.article-page .author-information p,
+.article-page .credit-card p,
+.blog-page .blog-card-content p { font-size: 0.9375rem; }
+.categories-page .category-content p { font-size: 1rem; }
+.blog-page .blog-search input { font-size: 1rem; }
+.article-page .article-content h2 { font-size: 2.25rem; }
+.article-page .reading-tools h2 { font-size: 2rem; }
+
+/* Enklere skrift er et valgfrit alternativ, ikke en dysleksikur */
+body.easy-read,
+body.easy-read h1, body.easy-read h2, body.easy-read h3,
+body.easy-read h4, body.easy-read p, body.easy-read a,
+body.easy-read button, body.easy-read li,
+body.easy-read input, body.easy-read select,
+body.easy-read .logo span,
+body.easy-read .article-content p,
+body.easy-read .article-quote p,
+body.easy-read .article-header h1,
+body.easy-read .about-page h1,
+body.easy-read .about-page h2 {
+  font-family: Arial, sans-serif;
+}
+body.easy-read p, body.easy-read li { line-height: 1.9; }
+body.easy-read .article-content p,
+body.easy-read .article-content li { line-height: 2; letter-spacing: 0.02em; }
+
+/* GLOBAL DARK MODE - sektioner med egne lyse baggrunde */
+body.dark-mode .hero:not(.about-hero) { color: #FFFFFF; }
+body.dark-mode .categories,
+body.dark-mode .blog-section,
+body.dark-mode .about,
+body.categories-page.dark-mode .categories-hero,
+body.categories-page.dark-mode .categories-section,
+body.blog-page.dark-mode .blog-hero,
+body.blog-page.dark-mode .blog-featured,
+body.blog-page.dark-mode .blog-list,
+body.about-page.dark-mode .about-sand,
+body.about-page.dark-mode .about-sage,
+body.about-page.dark-mode .about-ending,
+body.article-page.dark-mode .article-ending {
+  background-color: #19271F;
+  color: #F5EFE6;
+}
+body.dark-mode .category-card,
+body.dark-mode .blog-card,
+body.categories-page.dark-mode .category-card,
+body.blog-page.dark-mode .featured-card,
+body.blog-page.dark-mode .blog-card,
+body.article-page.dark-mode .author-card,
+body.article-page.dark-mode .credit-card,
+body.article-page.dark-mode .reading-tools,
+body.article-page.dark-mode .article-quote,
+body.article-page.dark-mode .article-note {
+  background-color: #26382D;
+  color: #F5EFE6;
+}
+
+/* Faste tekstfarver på undersider */
+body.categories-page.dark-mode .categories-hero h1,
+body.categories-page.dark-mode .categories-hero > p:last-child,
+body.categories-page.dark-mode .categories-intro h2,
+body.categories-page.dark-mode .category-content h3,
+body.categories-page.dark-mode .category-content p,
+body.categories-page.dark-mode .category-link,
+body.blog-page.dark-mode .blog-hero h1,
+body.blog-page.dark-mode .blog-hero-text,
+body.blog-page.dark-mode .featured-content h2,
+body.blog-page.dark-mode .featured-content p,
+body.blog-page.dark-mode .blog-section-heading h2,
+body.blog-page.dark-mode .blog-section-heading > p:last-child,
+body.blog-page.dark-mode .blog-search label,
+body.blog-page.dark-mode .blog-card h3,
+body.blog-page.dark-mode .blog-card-content p,
+body.blog-page.dark-mode .blog-read-link,
+body.blog-page.dark-mode .blog-no-results,
+body.about-page.dark-mode h1,
+body.about-page.dark-mode h2,
+body.about-page.dark-mode .about-ending h2,
+body.about-page.dark-mode .about-ending p,
+body.article-page.dark-mode .article-ending h2,
+body.article-page.dark-mode .article-ending > p,
+body.article-page.dark-mode .article-credits > h2,
+body.article-page.dark-mode .credits-intro,
+body.article-page.dark-mode .credit-card h3,
+body.article-page.dark-mode .credit-card p,
+body.article-page.dark-mode .author-information h2,
+body.article-page.dark-mode .author-information p,
+body.article-page.dark-mode .author-link {
+  color: #F5EFE6;
+}
+body.dark-mode .post-type,
+body.dark-mode .reading-time,
+body.blog-page.dark-mode .blog-category,
+body.blog-page.dark-mode .blog-reading-time,
+body.article-page.dark-mode .credit-type,
+body.about-page.dark-mode .about-eyebrow,
+body.dark-mode .about-label { color: #E7D8C4; }
+
+/* Hero med foto skal fortsat have hvid tekst */
+body.about-page.dark-mode .about-hero h1,
+body.about-page.dark-mode .about-hero .eyebrow,
+body.about-page.dark-mode .about-hero .hero-text { color: #FFFFFF; }
+
+/* Navigationslinks, logo og footer - tydelige i mørk tilstand */
+body.dark-mode .header,
+body.dark-mode footer,
+body.dark-mode .footer { background-color: #19271F; color: #F5EFE6; }
+body.dark-mode .header a,
+body.dark-mode .header .logo span,
+body.dark-mode .header .nav-links a,
+body.dark-mode footer a,
+body.dark-mode .footer a { color: #F5EFE6; }
+body.dark-mode .header .nav-links a:hover { color: #E7D8C4; }
+
+/* Form controls og filterknapper */
+body.blog-page.dark-mode .blog-search input,
+body.dark-mode .accessibility-option select,
+body.blog-page.dark-mode .filter-btn {
+  background-color: #26382D;
+  color: #F5EFE6;
+  border-color: #A6B09C;
+}
+body.blog-page.dark-mode .filter-btn:hover,
+body.blog-page.dark-mode .filter-btn.active {
+  background-color: #A6B09C;
+  color: #19271F;
+}
+body.dark-mode .accessibility-panel h2 { color: #F5EFE6; }
+body.article-page.dark-mode .reading-tools button { color: #19271F; }
+body.article-page.dark-mode .reading-tools button[aria-pressed="true"] {
+  background-color: #A6B09C; color: #19271F;
+}
+
+/* Knapper med tilstrækkelig kontrast i begge tilstande */
+.button, .read-more, .about-button { color: #FFFFFF; }
+body.dark-mode .about-button,
+body.dark-mode .read-more,
+body.article-page.dark-mode .article-ending .button,
+body.blog-page.dark-mode .featured-content .button {
+  background-color: #A6B09C;
+  color: #19271F;
+}
+body.dark-mode .about-button:hover,
+body.dark-mode .read-more:hover,
+body.article-page.dark-mode .article-ending .button:hover,
+body.blog-page.dark-mode .featured-content .button:hover {
+  background-color: #E7D8C4;
+  color: #19271F;
+}
+
+/* Fokus på alle interaktive elementer */
+:where(button, input, select, textarea, a):focus-visible {
+  outline: 3px solid #C9926E;
+  outline-offset: 3px;
+}
+
+/* Mobil og forstørrelse */
+@media (max-width: 768px) {
+  .accessibility-panel { margin: 12px 15px; padding: 20px; }
+  .accessibility-option { flex-wrap: wrap; }
+  .article-page .article-content p { font-size: 1rem; }
+  .article-page .article-content h2 { font-size: 1.9375rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+
+
+
+
+/* =====================================
+   KATEGORIUNDERSIDER - BLOOM WITHIN
+===================================== */
+
+.category-detail-page {
+  background: #F5EFE6;
+}
+
+.category-detail-hero {
+  background: #324237;
+  color: #F5EFE6;
+  padding: 90px 24px 100px;
+}
+
+.category-detail-hero-inner,
+.category-detail-container,
+.category-detail-more-inner {
+  width: min(100%, 1100px);
+  margin-inline: auto;
+}
+
+.category-detail-back {
+  display: inline-block;
+  margin-bottom: 42px;
+  color: #F5EFE6;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.category-detail-hero .eyebrow {
+  color: #E7D8C4;
+}
+
+.category-detail-hero h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(3.3rem, 7vw, 5.5rem);
+  line-height: 1.05;
+  margin: 16px 0 24px;
+  color: #F5EFE6;
+}
+
+.category-detail-hero-inner > p:last-child {
+  max-width: 690px;
+  font-size: 1.1rem;
+  line-height: 1.85;
+}
+
+/* ARTIKELSEKTION */
+
+.category-detail-section {
+  padding: 85px 24px 100px;
+}
+
+.category-detail-intro {
+  margin-bottom: 40px;
+}
+
+.category-detail-intro h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.4rem, 5vw, 3.5rem);
+  color: #324237;
+  margin: 12px 0;
+}
+
+.category-detail-intro > p:last-child {
+  max-width: 650px;
+  line-height: 1.8;
+}
+
+.category-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.category-detail-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 5px 22px rgba(50, 66, 55, 0.08);
+}
+
+.category-detail-card-image {
+  display: block;
+  overflow: hidden;
+}
+
+.category-detail-card-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.category-detail-card-image:hover img {
+  transform: scale(1.035);
+}
+
+.category-detail-card-content {
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.category-detail-card-content .article-category {
+  color: #99613F;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.category-detail-card-content h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.9rem;
+  line-height: 1.15;
+  margin: 14px 0;
+}
+
+.category-detail-card-content h3 a {
+  color: #324237;
+  text-decoration: none;
+}
+
+.category-detail-card-content > p:not(.article-category) {
+  line-height: 1.75;
+  margin-bottom: 22px;
+  color: #324237;
+}
+
+.category-detail-card-link {
+  margin-top: auto;
+  color: #324237;
+  font-weight: 700;
+  text-underline-offset: 5px;
+}
+
+/* AFSLUTNING */
+
+.category-detail-more {
+  background: #E7D8C4;
+  padding: 75px 24px;
+}
+
+.category-detail-more-inner {
+  text-align: center;
+}
+
+.category-detail-more h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  color: #324237;
+  margin: 14px 0;
+}
+
+.category-detail-more-inner > p:not(.eyebrow) {
+  max-width: 620px;
+  margin: 0 auto 28px;
+  line-height: 1.8;
+  color: #324237;
+}
+
+.category-detail-ending {
+  padding: 35px 24px;
+  text-align: center;
+}
+
+.category-detail-ending a {
+  color: #324237;
+  font-weight: 600;
+  text-underline-offset: 5px;
+}
+
+/* TASTATURNAVIGATION */
+
+.category-detail-page a:focus-visible {
+  outline: 3px solid #C9926E;
+  outline-offset: 4px;
+}
+
+/* MØRK TILSTAND */
+
+.category-detail-page.dark-mode .category-detail-section,
+.category-detail-page.dark-mode .category-detail-ending {
+  background: #202B24;
+}
+
+.category-detail-page.dark-mode .category-detail-intro h2,
+.category-detail-page.dark-mode .category-detail-intro > p,
+.category-detail-page.dark-mode .category-detail-ending a {
+  color: #F5EFE6;
+}
+
+.category-detail-page.dark-mode .category-detail-card {
+  background: #344439;
+}
+
+.category-detail-page.dark-mode .category-detail-card-content h3 a,
+.category-detail-page.dark-mode .category-detail-card-content > p:not(.article-category),
+.category-detail-page.dark-mode .category-detail-card-link {
+  color: #F5EFE6;
+}
+
+
+/* TOMME KATEGORIER */
+
+.category-detail-section
+.category-detail-more-inner {
+  background: #FFFFFF;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 5px 22px rgba(50, 66, 55, 0.08);
+  text-align: left;
+}
+
+.category-detail-section
+.category-detail-more-inner h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.category-detail-section
+.category-detail-more-inner p {
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .category-detail-section
+  .category-detail-more-inner {
+    padding: 25px;
+  }
+}
+
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .category-detail-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .category-detail-hero {
+    padding: 65px 24px 75px;
+  }
+}
+
+/* MOBIL */
+
+@media (max-width: 600px) {
+  .category-detail-hero {
+    padding: 45px 20px 65px;
+  }
+
+  .category-detail-back {
+    margin-bottom: 30px;
+  }
+
+  .category-detail-section {
+    padding: 55px 20px 65px;
+  }
+
+  .category-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-detail-card-content {
+    padding: 22px;
+  }
+
+  .category-detail-more {
+    padding: 55px 20px;
+  }
+}
+
+/* REDUCERET BEVÆGELSE */
+
+@media (prefers-reduced-motion: reduce) {
+  .category-detail-card-image img {
+    transition: none;
+  }
+}
+
+
+
+
+
+/* ==========================
+   RESPONSIV NAVIGATION
+   COMPUTER, TABLET OG MOBIL
+========================== */
+
+/* Fælles navigation */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.header nav {
+  min-width: 0;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px 22px;
+}
+
+.accessibility-toggle {
+  flex-shrink: 0;
+}
+
+/* TABLET */
+
+@media (max-width: 1100px) {
+
+  .header {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 18px 5%;
+  }
+
+  .header nav {
+    order: 3;
+    width: 100%;
+  }
+
+  .nav-links {
+    justify-content: center;
+    gap: 15px 25px;
+  }
+
+}
+
+/* MOBIL */
+
+@media (max-width: 600px) {
+
+  .header {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 15px;
+  }
+
+  .logo {
+    justify-content: center;
+  }
+
+  .header nav {
+    width: 100%;
+  }
+
+  .nav-links {
+    justify-content: center;
+    gap: 12px 18px;
+  }
+
+  .nav-links a {
+    display: inline-block;
+    padding: 8px 4px;
+  }
+
+  .accessibility-toggle {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .accessibility-panel {
+    margin: 12px 15px;
+    padding: 20px;
+  }
+
+  .accessibility-option {
+    flex-wrap: wrap;
+  }
+
+}
+
+/* TOUCH OG TASTATUR */
+
+.nav-links a,
+.accessibility-toggle {
+  min-height: 44px;
+}
+
+.nav-links a:focus-visible,
+.accessibility-toggle:focus-visible {
+  outline: 3px solid #C9926E;
+  outline-offset: 4px;
+}
+
+
+
+
+/* =====================================
+   BLOOM TOGETHER - DEMO
+===================================== */
+
+.bloom-together-page {
+  background: #F5EFE6;
+}
+
+.bt-container {
+  width: min(1100px, 90%);
+  margin: 0 auto;
+}
+
+.bt-hero {
+  background: #324237;
+  color: #F5EFE6;
+  padding: 95px 0;
+  text-align: center;
+}
+
+.bt-hero .eyebrow {
+  color: #E7D8C4;
+}
+
+.bt-hero h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  margin: 12px 0 20px;
+}
+
+.bt-hero p:not(.eyebrow) {
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.9;
+}
+
+.bt-hero-link {
+  display: inline-block;
+  margin-top: 30px;
+  color: #F5EFE6;
+  text-underline-offset: 5px;
+}
+
+.bt-demo-notice {
+  margin: 35px 0 10px;
+  padding: 22px 26px;
+  background: #E7D8C4;
+  color: #324237;
+  border-left: 4px solid #C9926E;
+  border-radius: 10px;
+}
+
+.bt-demo-notice p {
+  margin: 8px 0 0;
+  line-height: 1.7;
+}
+
+.bt-community {
+  padding: 70px 0 100px;
+}
+
+.bt-section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 35px;
+}
+
+.bt-section-heading h2,
+.bt-guidelines h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.3rem, 5vw, 3.5rem);
+  color: #324237;
+  margin: 10px 0;
+}
+
+.bt-section-heading p {
+  line-height: 1.7;
+}
+
+.bt-primary-button,
+.bt-secondary-button {
+  font: inherit;
+  padding: 13px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+}
+
+.bt-primary-button {
+  background: #324237;
+  color: #FFFFFF;
+  border: 2px solid #324237;
+}
+
+.bt-primary-button:hover {
+  background: #465B4B;
+}
+
+.bt-secondary-button {
+  background: transparent;
+  color: #324237;
+  border: 2px solid #324237;
+}
+
+.bt-secondary-button:hover {
+  background: #E7D8C4;
+}
+
+.bt-post-form-section {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 35px;
+  margin-bottom: 35px;
+  box-shadow: 0 5px 20px rgba(50, 66, 55, .07);
+}
+
+.bt-post-form-section[hidden] {
+  display: none;
+}
+
+.bt-post-form-section h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  color: #324237;
+}
+
+#bt-post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+#bt-post-form label {
+  font-weight: 600;
+  color: #324237;
+}
+
+#bt-post-form input,
+#bt-post-form select,
+#bt-post-form textarea,
+.bt-reply-form textarea {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #A6B09C;
+  border-radius: 8px;
+  font: inherit;
+  background: #FFFFFF;
+  color: #324237;
+}
+
+#bt-post-form textarea,
+.bt-reply-form textarea {
+  resize: vertical;
+}
+
+.bt-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.bt-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.bt-filter {
+  padding: 10px 18px;
+  border-radius: 30px;
+  border: 1px solid #A6B09C;
+  background: #FFFFFF;
+  color: #324237;
+  font: inherit;
+  cursor: pointer;
+}
+
+.bt-filter.active,
+.bt-filter[aria-pressed="true"] {
+  background: #324237;
+  color: #FFFFFF;
+  border-color: #324237;
+}
+
+.bt-status {
+  color: #324237;
+  margin-bottom: 15px;
+}
+
+.bt-posts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.bt-post-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 5px 20px rgba(50, 66, 55, .07);
+  min-width: 0;
+}
+
+.bt-post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: #566B5A;
+  font-size: .9rem;
+}
+
+.bt-post-category {
+  background: #E7D8C4;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: .8rem;
+}
+
+.bt-post-card h3 {
+  font-family: "Cormorant Garamond", serif;
+  color: #324237;
+  font-size: 1.8rem;
+  margin: 22px 0 12px;
+}
+
+.bt-post-text {
+  color: #324237;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.bt-post-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 25px;
+  padding-top: 18px;
+  border-top: 1px solid #E7D8C4;
+}
+
+.bt-action {
+  background: transparent;
+  border: 0;
+  color: #324237;
+  font: inherit;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.bt-action[aria-pressed="true"] {
+  color: #A65E48;
+  font-weight: 700;
+}
+
+.bt-replies {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #E7D8C4;
+}
+
+.bt-reply {
+  background: #F5EFE6;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 12px;
+  color: #324237;
+}
+
+.bt-reply strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.bt-reply p {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.bt-reply-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.bt-reply-form button {
+  align-self: flex-start;
+}
+
+.bt-guidelines {
+  background: #E7D8C4;
+  padding: 75px 0;
+  text-align: center;
+  color: #324237;
+}
+
+.bt-guidelines > .bt-container > p {
+  max-width: 700px;
+  margin: 15px auto 35px;
+  line-height: 1.8;
+}
+
+.bt-guideline-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  text-align: left;
+}
+
+.bt-guideline-grid article {
+  background: #F5EFE6;
+  padding: 25px;
+  border-radius: 14px;
+}
+
+.bt-guideline-grid h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.7rem;
+  margin-bottom: 12px;
+}
+
+.bt-guideline-grid p {
+  line-height: 1.7;
+}
+
+.bloom-together-page button:focus-visible,
+.bloom-together-page a:focus-visible,
+.bloom-together-page input:focus-visible,
+.bloom-together-page select:focus-visible,
+.bloom-together-page textarea:focus-visible {
+  outline: 3px solid #C9926E;
+  outline-offset: 3px;
+}
+
+@media (max-width: 750px) {
+  .bt-hero {
+    padding: 65px 0;
+  }
+
+  .bt-section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .bt-posts,
+  .bt-guideline-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bt-community {
+    padding: 50px 0 70px;
+  }
+
+  .bt-post-card,
+  .bt-post-form-section {
+    padding: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bloom-together-page * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+
+
+
+/* =====================================
+   KONTAKTSIDE - BLOOM WITHIN
+===================================== */
+
+.contact-page {
+  background: #F5EFE6;
+}
+
+.contact-container {
+  width: min(1100px, 90%);
+  margin: 0 auto;
+}
+
+/* HERO */
+
+.contact-hero {
+  background: #324237;
+  color: #F5EFE6;
+  padding: 95px 20px;
+  text-align: center;
+}
+
+.contact-hero .eyebrow {
+  color: #E7D8C4;
+}
+
+.contact-hero h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(3rem, 7vw, 5rem);
+  line-height: 1.15;
+  margin: 15px 0 25px;
+  color: #F5EFE6;
+}
+
+.contact-hero p:not(.eyebrow) {
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.9;
+  font-size: 1.05rem;
+}
+
+/* KONTAKTSEKTION */
+
+.contact-section {
+  padding: 85px 0;
+}
+
+.contact-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 45px;
+}
+
+.contact-intro h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.3rem, 5vw, 3.5rem);
+  color: #324237;
+  margin: 12px 0 18px;
+}
+
+.contact-intro p {
+  color: #324237;
+  line-height: 1.8;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.contact-card {
+  background: #FFFFFF;
+  border-radius: 18px;
+  padding: 40px 35px;
+  box-shadow: 0 5px 22px rgba(50, 66, 55, .08);
+}
+
+.contact-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #E7D8C4;
+  color: #324237;
+  font-size: 1.7rem;
+  margin-bottom: 20px;
+}
+
+.contact-card h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  color: #324237;
+  margin-bottom: 15px;
+}
+
+.contact-card p {
+  color: #324237;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.contact-email-note {
+  font-weight: 600;
+  font-style: italic;
+}
+
+.contact-link {
+  color: #324237;
+  font-weight: 600;
+  text-underline-offset: 5px;
+}
+
+/* VIGTIG INFORMATION */
+
+.contact-info-section {
+  padding: 20px 0 80px;
+}
+
+.contact-info-box {
+  background: #E7D8C4;
+  padding: 45px;
+  border-radius: 18px;
+  color: #324237;
+}
+
+.contact-info-box h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 12px 0 20px;
+}
+
+.contact-info-box p {
+  max-width: 850px;
+  line-height: 1.9;
+}
+
+/* AFSLUTNING */
+
+.contact-ending {
+  padding: 70px 0 85px;
+  text-align: center;
+}
+
+.contact-ending h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.3rem, 5vw, 3.5rem);
+  color: #324237;
+  margin-bottom: 20px;
+}
+
+.contact-ending p {
+  max-width: 650px;
+  margin: 0 auto 25px;
+  color: #324237;
+  line-height: 1.8;
+}
+
+.contact-back-link {
+  color: #324237;
+  font-weight: 600;
+  text-underline-offset: 5px;
+}
+
+.contact-page main a:focus-visible {
+  outline: 3px solid #C9926E;
+  outline-offset: 4px;
+}
+
+/* MOBIL */
+
+@media (max-width: 700px) {
+  .contact-hero {
+    padding: 65px 20px;
+  }
+
+  .contact-section {
+    padding: 60px 0;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-card {
+    padding: 30px 25px;
+  }
+
+  .contact-info-section {
+    padding: 10px 0 55px;
+  }
+
+  .contact-info-box {
+    padding: 30px 25px;
+  }
+
+  .contact-ending {
+    padding: 55px 0 65px;
+  }
+}
+
+
+/* =====================================
+   KONTAKTSIDE - MØRK TILSTAND
+===================================== */
+
+body.dark-mode.contact-page {
+  background: #192A20;
+}
+
+/* Kontaktsektion */
+body.dark-mode .contact-section {
+  background: #192A20;
+}
+
+body.dark-mode .contact-intro h2,
+body.dark-mode .contact-intro p {
+  color: #F5EFE6;
+}
+
+/* Kontaktkort */
+body.dark-mode .contact-card {
+  background: #324237;
+}
+
+body.dark-mode .contact-card h3,
+body.dark-mode .contact-card p,
+body.dark-mode .contact-card a {
+  color: #F5EFE6;
+}
+
+/* Ikoner */
+body.dark-mode .contact-icon {
+  background: #E7D8C4;
+  color: #324237;
+}
+
+/* Informationssektion */
+body.dark-mode .contact-info-section {
+  background: #192A20;
+}
+
+body.dark-mode .contact-info-box {
+  background: #324237;
+}
+
+body.dark-mode .contact-info-box h2,
+body.dark-mode .contact-info-box p {
+  color: #F5EFE6;
+}
+
+/* Afsluttende sektion */
+body.dark-mode .contact-ending {
+  background: #192A20;
+}
+
+body.dark-mode .contact-ending h2,
+body.dark-mode .contact-ending p,
+body.dark-mode .contact-ending a {
+  color: #F5EFE6;
+}
+
+
+
+/* =====================================
+   PRIVATLIVSPOLITIK - BLOOM WITHIN
+===================================== */
+
+.privacy-page {
+  background: #F5EFE6;
+}
+
+.privacy-container {
+  width: min(1150px, 90%);
+  margin: 0 auto;
+}
+
+/* HERO */
+
+.privacy-hero {
+  background: #324237;
+  color: #F5EFE6;
+  padding: 85px 20px;
+  text-align: center;
+}
+
+.privacy-hero .eyebrow {
+  color: #E7D8C4;
+}
+
+.privacy-hero h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(3rem, 7vw, 5rem);
+  color: #F5EFE6;
+  margin: 15px 0 22px;
+}
+
+.privacy-hero p:not(.eyebrow) {
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.9;
+}
+
+/* INDHOLD */
+
+.privacy-section {
+  padding: 80px 0;
+}
+
+.privacy-layout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 55px;
+  align-items: start;
+}
+
+/* INDHOLDSFORTEGNELSE */
+
+.privacy-navigation {
+  background: #E7D8C4;
+  border-radius: 14px;
+  padding: 25px;
+  position: sticky;
+  top: 25px;
+}
+
+.privacy-navigation h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.7rem;
+  color: #324237;
+  margin-bottom: 20px;
+}
+
+.privacy-navigation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.privacy-navigation li {
+  margin-bottom: 13px;
+}
+
+.privacy-navigation a {
+  color: #324237;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  line-height: 1.6;
+}
+
+/* TEKSTSEKTIONER */
+
+.privacy-content {
+  min-width: 0;
+}
+
+.privacy-content section {
+  margin-bottom: 45px;
+  padding-bottom: 35px;
+  border-bottom: 1px solid #A6B09C;
+  scroll-margin-top: 30px;
+}
+
+.privacy-content h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  line-height: 1.2;
+  color: #324237;
+  margin-bottom: 20px;
+}
+
+.privacy-content p {
+  font-family: "DM Sans", sans-serif;
+  color: #324237;
+  line-height: 1.9;
+  margin-bottom: 16px;
+}
+
+.privacy-content a {
+  color: #324237;
+  font-weight: 600;
+  text-underline-offset: 5px;
+}
+
+/* AFSLUTNING */
+
+.privacy-ending {
+  background: #E7D8C4;
+  padding: 65px 20px;
+  text-align: center;
+  color: #324237;
+}
+
+.privacy-ending h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.2rem, 5vw, 3.3rem);
+  margin-bottom: 18px;
+}
+
+.privacy-ending p {
+  max-width: 650px;
+  margin: 0 auto 25px;
+  line-height: 1.8;
+}
+
+.privacy-ending a {
+  color: #324237;
+  font-weight: 600;
+  text-underline-offset: 5px;
+}
+
+/* TASTATURFOKUS */
+
+.privacy-page main a:focus-visible {
+  outline: 3px solid #C9926E;
+  outline-offset: 4px;
+}
+
+/* MOBIL */
+
+@media (max-width: 800px) {
+  .privacy-layout {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .privacy-navigation {
+    position: static;
+  }
+
+  .privacy-section {
+    padding: 55px 0;
+  }
+
+  .privacy-hero {
+    padding: 65px 20px;
+  }
+}
+
+
+/* =====================================
+   PRIVATLIVSPOLITIK - MØRK TILSTAND
+===================================== */
+
+/* Hvis mørk tilstand bruger body.dark-mode */
+body.dark-mode.privacy-page {
+  background: #192A20;
+}
+
+/* Indholdets baggrund */
+body.dark-mode .privacy-section {
+  background: #192A20;
+}
+
+/* Overskrifter og almindelig tekst */
+body.dark-mode .privacy-content h2,
+body.dark-mode .privacy-content p {
+  color: #F5EFE6;
+}
+
+/* Links i indholdet */
+body.dark-mode .privacy-content a {
+  color: #E7D8C4;
+}
+
+/* Indholdsfortegnelsen */
+body.dark-mode .privacy-navigation {
+  background: #324237;
+}
+
+body.dark-mode .privacy-navigation h2,
+body.dark-mode .privacy-navigation a {
+  color: #F5EFE6;
+}
+
+/* Linjer mellem sektioner */
+body.dark-mode .privacy-content section {
+  border-bottom-color: #A6B09C;
+}
+
+/* Afsluttende sektion */
+body.dark-mode .privacy-ending {
+  background: #324237;
+}
+
+body.dark-mode .privacy-ending h2,
+body.dark-mode .privacy-ending p,
+body.dark-mode .privacy-ending a {
+  color: #F5EFE6;
+}
+
+
+/* =====================================
+   BLOOM WITHIN - DARK MODE SEKTIONER
+===================================== */
+
+/* Farver til mørk tilstand */
+body.dark-mode {
+  --dark-bg: #192A20;
+  --dark-section: #26392D;
+  --dark-surface: #354A3C;
+  --dark-text: #F5EFE6;
+  --dark-divider: #607365;
+}
+
+/* Diskret opdeling mellem sektioner */
+body.dark-mode main > section + section {
+  border-top: 1px solid var(--dark-divider);
+}
+
+/* Blødere overgang mellem indhold */
+body.dark-mode main > section {
+  position: relative;
+}
+
+/* Footer adskilles fra resten */
+body.dark-mode .site-footer {
+  background: var(--dark-surface);
+  border-top: 2px solid #A6B09C;
+}
+
+
+
+
+/* =====================================
+   DARK MODE - TILGÆNGELIGHEDSMENU
+===================================== */
+
+body.dark-mode .accessibility-panel {
+  background-color: #26382D;
+  color: #F5EFE6;
+  border-color: #A6B09C;
+}
+
+/* Overskrifter og labels */
+body.dark-mode .accessibility-panel h2,
+body.dark-mode .accessibility-option label {
+  color: #F5EFE6;
+}
+
+/* Dropdown */
+body.dark-mode .accessibility-option select {
+  background-color: #354A3C;
+  color: #F5EFE6;
+  border: 2px solid #A6B09C;
+}
+
+/* Checkbox */
+body.dark-mode .accessibility-option input[type="checkbox"] {
+  accent-color: #A6B09C;
+}
+
+/* Skillelinjer */
+body.dark-mode .accessibility-option {
+  border-bottom-color: #607365;
+}
+
+
+
+/* =====================================
+   BLOOM TOGETHER - DARK MODE
+===================================== */
+
+/* Sidens baggrund */
+body.bloom-together-page.dark-mode {
+  background-color: #19271F;
+  color: #F5EFE6;
+}
+
+/* Overskrifter og tekst */
+body.bloom-together-page.dark-mode
+.bt-section-heading h2,
+body.bloom-together-page.dark-mode
+.bt-section-heading p,
+body.bloom-together-page.dark-mode
+.bt-status,
+body.bloom-together-page.dark-mode
+.bt-guidelines h2 {
+  color: #F5EFE6;
+}
+
+/* Opslagskort */
+body.bloom-together-page.dark-mode
+.bt-post-card,
+body.bloom-together-page.dark-mode
+.bt-post-form-section {
+  background-color: #354A3C;
+  color: #F5EFE6;
+}
+
+/* Tekst i opslag */
+body.bloom-together-page.dark-mode
+.bt-post-card h3,
+body.bloom-together-page.dark-mode
+.bt-post-text,
+body.bloom-together-page.dark-mode
+.bt-post-meta,
+body.bloom-together-page.dark-mode
+.bt-post-form-section h3,
+body.bloom-together-page.dark-mode
+#bt-post-form label,
+body.bloom-together-page.dark-mode
+.bt-action {
+  color: #F5EFE6;
+}
+
+/* Kategorifiltre */
+body.bloom-together-page.dark-mode
+.bt-filter {
+  background-color: #354A3C;
+  color: #F5EFE6;
+  border-color: #A6B09C;
+}
+
+/* Aktivt filter */
+body.bloom-together-page.dark-mode
+.bt-filter.active,
+body.bloom-together-page.dark-mode
+.bt-filter[aria-pressed="true"] {
+  background-color: #A6B09C;
+  color: #19271F;
+}
+
+/* Kategorimærker */
+body.bloom-together-page.dark-mode
+.bt-post-category {
+  background-color: #E7D8C4;
+  color: #324237;
+}
+
+/* Svar under opslag */
+body.bloom-together-page.dark-mode
+.bt-reply {
+  background-color: #26382D;
+  color: #F5EFE6;
+}
+
+/* Retningslinjer */
+body.bloom-together-page.dark-mode
+.bt-guidelines {
+  background-color: #26382D;
+  color: #F5EFE6;
+}
+
+body.bloom-together-page.dark-mode
+.bt-guidelines article {
+  background-color: #354A3C;
+  color: #F5EFE6;
+}
+
+/* Formularfelter */
+body.bloom-together-page.dark-mode
+#bt-post-form input,
+body.bloom-together-page.dark-mode
+#bt-post-form select,
+body.bloom-together-page.dark-mode
+#bt-post-form textarea,
+body.bloom-together-page.dark-mode
+.bt-reply-form textarea {
+  background-color: #26382D;
+  color: #F5EFE6;
+  border-color: #A6B09C;
+}
+
+/* Knapper */
+body.bloom-together-page.dark-mode
+.bt-primary-button {
+  background-color: #A6B09C;
+  color: #19271F;
+  border-color: #A6B09C;
+}
+
+body.bloom-together-page.dark-mode
+.bt-secondary-button {
+  color: #F5EFE6;
+  border-color: #A6B09C;
+}
