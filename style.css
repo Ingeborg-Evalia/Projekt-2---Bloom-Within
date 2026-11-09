@@ -4201,6 +4201,10 @@ body.bloom-together-page.dark-mode
 
 /* LUK-KNAP TIL TILGÆNGELIGHEDSMENU */
 
+.accessibility-panel {
+  position: absolute;
+}
+
 .accessibility-close {
   position: absolute;
   top: 16px;
