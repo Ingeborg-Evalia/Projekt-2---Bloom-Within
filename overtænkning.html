@@ -1,0 +1,501 @@
+
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Hvorfor overtænker vi alt? | Bloom Within</title>
+
+  <meta name="description"
+        content="Hvorfor overtænker vi? Læs om tankemylder, bekymringer og små måder at skabe mere ro i tankerne.">
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body class="article-page">
+
+  <!-- NAVIGATION -->
+  <header class="header">
+
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="">
+      <span>Bloom Within</span>
+    </a>
+
+    <nav aria-label="Hovednavigation">
+      <ul class="nav-links">
+        <li><a href="index.html">Forside</a></li>
+        <li><a href="kategorier.html">Kategorier</a></li>
+        <li>
+          <a href="blog.html" aria-current="page">
+            Blog
+          </a>
+        </li>
+        <li><a href="om-os.html">Historien bag</a></li>
+        <li><a href="bloom-together.html">Bloom Together</a></li>
+      </ul>
+    </nav>
+
+    <!-- TILGÆNGELIGHED -->
+<button
+  type="button"
+  class="accessibility-toggle"
+  id="accessibility-toggle"
+  aria-expanded="false"
+  aria-controls="accessibility-panel"
+>
+  ⚙ Tilgængelighed
+</button>
+  </header>
+
+<!-- FÆLLES TILGÆNGELIGHEDSMENU -->
+<section
+  class="accessibility-panel"
+  id="accessibility-panel"
+  aria-label="Tilgængelighedsindstillinger"
+  hidden
+>
+  <h2>Tilpas hjemmesiden</h2>
+
+  <div class="accessibility-option">
+    <label for="site-dark-mode">
+      Mørk tilstand
+    </label>
+
+    <input
+      type="checkbox"
+      id="site-dark-mode"
+    >
+  </div>
+
+  <div class="accessibility-option">
+    <label for="site-font-size">
+      Tekststørrelse
+    </label>
+
+    <select id="site-font-size">
+      <option value="normal">Normal</option>
+      <option value="large">Stor</option>
+      <option value="extra-large">Ekstra stor</option>
+    </select>
+  </div>
+
+  <div class="accessibility-option">
+    <label for="site-easy-read">
+      Enklere skrifttype
+    </label>
+
+    <input
+      type="checkbox"
+      id="site-easy-read"
+    >
+  </div>
+
+  <button type="button" id="reset-accessibility">
+    Nulstil indstillinger
+  </button>
+</section>
+
+
+  <main>
+
+    <article>
+
+      <!-- ARTIKEL HEADER -->
+      <header class="article-header">
+
+        <a href="blog.html" class="article-back">
+          ← Tilbage til bloggen
+        </a>
+
+        <p class="article-category">
+          TANKEMY LDER · 5 MIN LÆSNING
+        </p>
+
+        <h1>Hvorfor overtænker vi alt?</h1>
+
+        <p class="article-intro">
+          Når tankerne ikke vil give slip,
+          og selv de mindste situationer
+          bliver til store spørgsmål.
+        </p>
+
+      </header>
+
+      <!-- ARTIKELBILLEDE -->
+      <div class="article-image">
+        <img
+          src="images/blog-1.jpg"
+          alt="En kvinde sidder og betragter et tåget landskab"
+        >
+      </div>
+
+
+
+
+<!-- LÆSEVÆRKTØJ -->
+<section class="reading-tools"
+         aria-labelledby="reading-tools-title">
+
+  <h2 id="reading-tools-title">
+    Din læseoplevelse
+  </h2>
+
+  <p>
+    Tilpas artiklen, så den passer til dig.
+  </p>
+
+  <div class="reading-tools-buttons">
+
+    <button type="button" id="read-aloud">
+      🔊 Læs artiklen op
+    </button>
+
+    <button type="button"
+            id="pause-reading"
+            disabled>
+      ⏸ Pause
+    </button>
+
+    <button type="button"
+            id="stop-reading"
+            disabled>
+      ⏹ Stop
+    </button>
+
+    <button type="button"
+            id="article-dark-mode"
+            aria-pressed="false">
+      🌙 Mørk tilstand
+    </button>
+
+    <button type="button" id="article-increase-text">
+      A+ Større tekst
+    </button>
+
+    <button type="button" id="article-decrease-text">
+      A− Mindre tekst
+    </button>
+
+    <button type="button"
+            id="article-easy-read"
+            aria-pressed="false">
+      Letlæselig skrift
+    </button>
+
+  </div>
+
+  <p id="reading-status"
+     class="reading-status"
+     role="status"
+     aria-live="polite"></p>
+
+</section>
+
+
+      <!-- ARTIKELINDHOLD -->
+      <div class="article-content">
+
+        <h2>Når tankerne tager over</h2>
+
+        <p>
+          Kender du følelsen af at gennemgå en samtale
+          igen og igen? Måske tænker du over, hvad
+          du burde have sagt, eller om andre har
+          misforstået dig.
+        </p>
+
+        <p>
+          Det kan også være en besked, du har sendt,
+          en beslutning, du skal træffe, eller en
+          situation, der endnu ikke er sket.
+          Pludselig fylder tankerne mere,
+          end du egentlig ønsker.
+        </p>
+
+        <h2>Hvorfor overtænker vi?</h2>
+
+        <p>
+          Overtænkning kan opstå, når vi forsøger
+          at forstå en situation, undgå fejl eller
+          forberede os på noget usikkert.
+        </p>
+
+        <p>
+          Det kan føles som om, vi kommer tættere
+          på et svar ved at tænke mere.
+          Men nogle gange ender vi med at vende
+          tilbage til de samme spørgsmål
+          uden at finde en løsning.
+        </p>
+
+        <!-- REFLEKSIONSBOKS -->
+        <aside class="article-quote">
+          <p>
+            Du behøver ikke have svar
+            på alle dine tanker.
+          </p>
+        </aside>
+
+        <h2>Når tankerne påvirker hverdagen</h2>
+
+        <p>
+          Tankemylder kan gøre det svært at være
+          til stede i øjeblikket. Det kan påvirke
+          koncentrationen, søvnen eller lysten
+          til at deltage i sociale situationer.
+        </p>
+
+        <p>
+          Det er forskelligt fra person til person,
+          hvor meget tankerne fylder.
+          Der findes heller ikke én løsning,
+          der virker for alle.
+        </p>
+
+        <h2>Små ting, du kan prøve</h2>
+
+        <p>
+          Hvis tankerne fylder meget,
+          kan det være hjælpsomt at prøve
+          forskellige måder at skabe
+          lidt afstand til dem.
+        </p>
+
+        <ul>
+          <li>
+            <strong>Skriv tankerne ned.</strong>
+            Det kan gøre dem mere overskuelige.
+          </li>
+
+          <li>
+            <strong>Spørg dig selv, hvad du ved.</strong>
+            Er det en kendsgerning eller en bekymring?
+          </li>
+
+          <li>
+            <strong>Giv dig selv en pause.</strong>
+            Du behøver ikke løse alt med det samme.
+          </li>
+
+          <li>
+            <strong>Tal med nogen.</strong>
+            Det kan hjælpe at dele det,
+            der fylder, med en person,
+            du føler dig tryg ved.
+          </li>
+        </ul>
+
+        <h2>En sidste tanke</h2>
+
+        <p>
+          At overtænke betyder ikke, at du gør
+          noget forkert. Nogle gange prøver vi
+          bare så hårdt at forstå og kontrollere
+          det, der sker omkring os, at tankerne
+          kommer til at fylde for meget.
+        </p>
+
+        <p>
+          Du behøver ikke finde alle svar i dag.
+          Nogle spørgsmål må gerne vente.
+        </p>
+
+        <!-- FAGLIG BEMÆRKNING -->
+        <aside class="article-note">
+          <h2>Godt at vide</h2>
+          <p>
+            Denne artikel indeholder generel information
+            og refleksioner om overtænkning.
+            Den erstatter ikke professionel rådgivning
+            eller behandling. Hvis tankemylder påvirker
+            din hverdag meget, kan du tale med din læge
+            eller en anden relevant fagperson.
+          </p>
+        </aside>
+
+      </div>
+
+    </article>
+
+
+<!-- FORFATTERFELT -->
+<section class="article-author"
+         aria-labelledby="author-title">
+
+  <div class="author-card">
+
+    <div class="author-avatar" aria-hidden="true">
+      BW
+    </div>
+
+    <div class="author-information">
+
+      <p class="author-label">SKREVET AF</p>
+
+      <h2 id="author-title">Bloom Within</h2>
+
+      <p>
+        Dato for udgivelse: 02 oktober 2026
+      </p>
+
+      <p>
+        Bloom Within er skabt med et ønske om
+        at give plads til ærlige fortællinger,
+        refleksioner og viden om mental trivsel.
+
+        Her er der plads til at være menneske
+        og vokse i sit eget tempo.
+      </p>
+
+      <a href="om-os.html" class="author-link">
+        Læs historien bag Bloom Within →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- BIDRAGYDERE OG SAMARBEJDSPARTNERE -->
+<section class="article-credits"
+         aria-labelledby="credits-title">
+
+  <h2 id="credits-title">
+    Menneskene bag fortællingen
+  </h2>
+
+  <p class="credits-intro">
+    Bag hver fortælling er der mennesker,
+    der har valgt at dele deres erfaringer,
+    viden eller perspektiver.
+  </p>
+
+  <div class="credits-grid">
+
+        <div class="credit-card">
+
+          <span class="credit-type">
+            TEKST OG REDAKTION
+          </span>
+
+          <h3>Bloom Within</h3>
+
+          <p>
+            Artiklen er udarbejdet til Bloom Within
+            med fokus på enkle og tilgængelige
+            øvelser til hverdagen.
+          </p>
+
+        </div>
+
+        <div class="credit-card">
+
+          <span class="credit-type">
+            FAGLIG GENNEMGANG
+          </span>
+
+          <h3>Endnu ikke gennemgået</h3>
+
+          <p>
+            Artiklen afventer faglig gennemgang.
+            Der er endnu ikke tilknyttet
+            en psykolog som faglig reviewer.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- TILBAGE TIL BLOGGEN -->
+    <section class="article-ending">
+
+      <p class="eyebrow">BLIV LIDT LÆNGERE</p>
+
+      <h2>Der er plads til flere tanker her</h2>
+
+      <p>
+        Udforsk flere fortællinger,
+        refleksioner og små skridt.
+      </p>
+
+      <a href="blog.html" class="button">
+        Udforsk bloggen
+      </a>
+
+    </section>
+
+  </main>
+
+ <footer class="site-footer">
+  <div class="footer-container">
+
+    <div class="footer-column">
+
+      <h2>Bloom Within ✿</h2>
+      <p>
+        Et sted med plads til hele dig.
+        Et trygt rum for fortællinger, viden og fællesskab.
+        Her er plads til at vokse i dit eget tempo.
+      </p>
+    </div>
+
+    <div class="footer-column">
+      <h3>Udforsk</h3>
+      <ul>
+        <li><a href="kategorier.html">Kategorier</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="om-os.html">Historien bag</a></li>
+        <li><a href="bloom-together.html">Bloom Together</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>Kontakt</h3>
+      <p>
+        Har du spørgsmål, feedback
+        eller idéer til samarbejde?
+      </p>
+      <a href="kontakt.html">Kontakt Bloom Within →</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>Information</h3>
+      <ul>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li>
+          <a href="privatlivspolitik.html">
+            Privatlivspolitik
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Bloom Within · Skabt med omtanke 🌿</p>
+  </div>
+</footer>
+
+</body>
+</html>

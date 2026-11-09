@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Bloom Together | Bloom Within</title>
+  <meta name="description"
+    content="Udforsk Bloom Together, en interaktiv demo af et anonymt fællesskab for piger.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <script src="bloom-together.js" defer></script>
+</head>
+
+<body class="bloom-together-page">
+
+  <a href="#main-content" class="skip-link">
+    Spring til hovedindhold
+  </a>
+
+  <!-- NAVIGATION -->
+  <header class="header">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="">
+      <span>Bloom Within</span>
+    </a>
+
+    <nav aria-label="Hovednavigation">
+      <ul class="nav-links">
+        <li><a href="index.html">Forside</a></li>
+        <li><a href="kategorier.html">Kategorier</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="om-os.html">Historien Bag</a></li>
+        <li>
+          <a href="bloom-together.html" aria-current="page">
+            Bloom Together
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <button type="button"
+      class="accessibility-toggle"
+      id="accessibility-toggle"
+      aria-expanded="false"
+      aria-controls="accessibility-panel">
+      ⚙ Tilgængelighed
+    </button>
+  </header>
+
+  <!-- TILGÆNGELIGHEDSMENU -->
+  <section class="accessibility-panel"
+    id="accessibility-panel"
+    aria-label="Tilgængelighedsindstillinger"
+    hidden>
+
+    <h2>Tilpas hjemmesiden</h2>
+
+    <div class="accessibility-option">
+      <label for="site-dark-mode">Mørk tilstand</label>
+      <input type="checkbox" id="site-dark-mode">
+    </div>
+
+    <div class="accessibility-option">
+      <label for="site-font-size">Tekststørrelse</label>
+      <select id="site-font-size">
+        <option value="normal">Normal</option>
+        <option value="large">Stor</option>
+        <option value="extra-large">Ekstra stor</option>
+      </select>
+    </div>
+
+    <div class="accessibility-option">
+      <label for="site-easy-read">Enklere skrifttype</label>
+      <input type="checkbox" id="site-easy-read">
+    </div>
+
+    <button type="button" id="reset-accessibility">
+      Nulstil indstillinger
+    </button>
+  </section>
+
+  <main id="main-content">
+
+    <!-- VELKOMST -->
+    <section class="bt-hero">
+      <div class="bt-container">
+        <p class="eyebrow">ET FÆLLESSKAB MED PLADS TIL DIG</p>
+        <h1>Bloom Together</h1>
+        <p>
+          Nogle gange hjælper det bare at vide,
+          at man ikke står alene.
+          Her er plads til spørgsmål, tanker,
+          små sejre og de dage, hvor livet fylder.
+        </p>
+        <a href="#faellesskab" class="bt-hero-link">
+          Udforsk fællesskabet ↓
+        </a>
+      </div>
+    </section>
+
+    <!-- DEMOBESKED -->
+    <div class="bt-container">
+      <aside class="bt-demo-notice">
+        <strong>🌿 Du besøger en demo</strong>
+        <p>
+          Bloom Together er en prototype til et skoleprojekt.
+          Alle eksempelopslag er fiktive. Det, du skriver,
+          vises kun i din egen browser og forsvinder,
+          når siden genindlæses. Skriv ikke personlige
+          eller følsomme oplysninger i demoen.
+        </p>
+      </aside>
+    </div>
+
+    <!-- FÆLLESSKAB -->
+    <section id="faellesskab" class="bt-community">
+      <div class="bt-container">
+
+        <div class="bt-section-heading">
+          <div>
+            <p class="eyebrow">SAMMEN VOKSER VI</p>
+            <h2>Fællesskabets opslag</h2>
+            <p>
+              Læs andres tanker, find genkendelse,
+              eller del noget fra din egen hverdag.
+            </p>
+          </div>
+
+          <button type="button"
+            class="bt-primary-button"
+            id="bt-new-post-button"
+            aria-expanded="false"
+            aria-controls="bt-post-form-section">
+            + Skriv et opslag
+          </button>
+        </div>
+
+        <!-- FORMULAR -->
+        <section class="bt-post-form-section"
+          id="bt-post-form-section"
+          aria-labelledby="bt-form-heading"
+          hidden>
+
+          <h3 id="bt-form-heading">Del dine tanker</h3>
+          <p>
+            Dit opslag får navnet "Anonym blomst".
+            Det bliver kun vist i denne demo.
+          </p>
+
+          <form id="bt-post-form">
+
+            <label for="bt-post-category">Vælg kategori</label>
+            <select id="bt-post-category" required>
+              <option value="">Vælg en kategori</option>
+              <option value="Tankemylder">Tankemylder</option>
+              <option value="Relationer">Relationer</option>
+              <option value="Små sejre">Små sejre</option>
+              <option value="Spørgsmål">Spørgsmål</option>
+            </select>
+
+            <label for="bt-post-title">Overskrift</label>
+            <input type="text"
+              id="bt-post-title"
+              maxlength="100"
+              placeholder="Hvad vil du gerne dele?"
+              required>
+
+            <label for="bt-post-text">Dit opslag</label>
+            <textarea id="bt-post-text"
+              rows="5"
+              maxlength="1000"
+              placeholder="Skriv dine tanker her..."
+              required></textarea>
+
+            <div class="bt-form-actions">
+              <button type="submit" class="bt-primary-button">
+                Vis mit opslag
+              </button>
+              <button type="button"
+                class="bt-secondary-button"
+                id="bt-cancel-post">
+                Annuller
+              </button>
+            </div>
+
+          </form>
+        </section>
+
+        <!-- FILTRE -->
+        <div class="bt-filters"
+          role="group"
+          aria-label="Filtrer opslag efter kategori">
+
+          <button type="button" class="bt-filter active"
+            data-category="Alle" aria-pressed="true">Alle</button>
+
+          <button type="button" class="bt-filter"
+            data-category="Tankemylder" aria-pressed="false">
+            Tankemylder
+          </button>
+
+          <button type="button" class="bt-filter"
+            data-category="Relationer" aria-pressed="false">
+            Relationer
+          </button>
+
+          <button type="button" class="bt-filter"
+            data-category="Små sejre" aria-pressed="false">
+            Små sejre
+          </button>
+
+          <button type="button" class="bt-filter"
+            data-category="Spørgsmål" aria-pressed="false">
+            Spørgsmål
+          </button>
+        </div>
+
+        <p id="bt-status" class="bt-status"
+          role="status" aria-live="polite"></p>
+
+        <!-- OPSLAG INDSÆTTES MED JAVASCRIPT -->
+        <div id="bt-posts" class="bt-posts"></div>
+
+      </div>
+    </section>
+
+    <!-- RETNINGSLINJER -->
+    <section class="bt-guidelines">
+      <div class="bt-container">
+        <p class="eyebrow">ET TRYGT FÆLLESSKAB</p>
+        <h2>Her passer vi på hinanden</h2>
+        <p>
+          Bloom Together bygger på respekt,
+          forståelse og plads til forskellighed.
+          I et fremtidigt rigtigt fællesskab
+          vil tydelige retningslinjer og moderation
+          være nødvendige.
+        </p>
+
+        <div class="bt-guideline-grid">
+          <article>
+            <h3>♡ Vis respekt</h3>
+            <p>
+              Mød andre med venlighed.
+              Vi behøver ikke være enige
+              for at behandle hinanden ordentligt.
+            </p>
+          </article>
+
+          <article>
+            <h3>✿ Beskyt privatlivet</h3>
+            <p>
+              Del ikke navne, adresser,
+              kontaktoplysninger eller
+              andre identificerende oplysninger.
+            </p>
+          </article>
+
+          <article>
+            <h3>☾ Giv plads</h3>
+            <p>
+              Lyt uden at dømme.
+              Undgå at stille diagnoser
+              eller presse andre til at dele mere.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <div class="footer-column">
+
+      <h2>Bloom Within ✿</h2>
+      <p>
+        Et sted med plads til hele dig.
+        Et trygt rum for fortællinger, viden og fællesskab.
+        Her er plads til at vokse i dit eget tempo.
+      </p>
+    </div>
+
+    <div class="footer-column">
+      <h3>Udforsk</h3>
+      <ul>
+        <li><a href="kategorier.html">Kategorier</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="om-os.html">Historien bag</a></li>
+        <li><a href="bloom-together.html">Bloom Together</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>Kontakt</h3>
+      <p>
+        Har du spørgsmål, feedback
+        eller idéer til samarbejde?
+      </p>
+      <a href="kontakt.html">Kontakt Bloom Within →</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>Information</h3>
+      <ul>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li>
+          <a href="privatlivspolitik.html">
+            Privatlivspolitik
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Bloom Within · Skabt med omtanke 🌿</p>
+  </div>
+</footer>
+
+</body>
+</html>

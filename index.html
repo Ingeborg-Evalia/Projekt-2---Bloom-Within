@@ -1,0 +1,383 @@
+
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Bloom Within | Mental sundhed</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<a href="#forside" class="skip-link">
+  Spring til hovedindhold
+</a>
+
+  <!-- Navigation -->
+  <header class="header">
+    <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="">
+      <span>Bloom Within</span>
+    </a>
+
+   
+<nav aria-label="Hovednavigation">
+  <ul class="nav-links">
+    <li>
+      <a href="index.html" aria-current="page">Forside</a>
+    </li>
+    <li><a href="kategorier.html">Kategorier</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="om-os.html">Historien Bag</a></li>
+    <li><a href="bloom-together.html">Bloom Together</a></li>
+  </ul>
+</nav>
+
+
+<!-- TILGÆNGELIGHED -->
+<button
+  type="button"
+  class="accessibility-toggle"
+  id="accessibility-toggle"
+  aria-expanded="false"
+  aria-controls="accessibility-panel"
+>
+  ⚙ Tilgængelighed
+</button>
+
+  </header>
+
+
+<!-- FÆLLES TILGÆNGELIGHEDSMENU -->
+<section
+  class="accessibility-panel"
+  id="accessibility-panel"
+  aria-label="Tilgængelighedsindstillinger"
+  hidden
+>
+  <h2>Tilpas hjemmesiden</h2>
+
+  <div class="accessibility-option">
+    <label for="site-dark-mode">
+      Mørk tilstand
+    </label>
+
+    <input
+      type="checkbox"
+      id="site-dark-mode"
+    >
+  </div>
+
+  <div class="accessibility-option">
+    <label for="site-font-size">
+      Tekststørrelse
+    </label>
+
+    <select id="site-font-size">
+      <option value="normal">Normal</option>
+      <option value="large">Stor</option>
+      <option value="extra-large">Ekstra stor</option>
+    </select>
+  </div>
+
+  <div class="accessibility-option">
+    <label for="site-easy-read">
+      Enklere skrifttype
+    </label>
+
+    <input
+      type="checkbox"
+      id="site-easy-read"
+    >
+  </div>
+
+  <button type="button" id="reset-accessibility">
+    Nulstil indstillinger
+  </button>
+</section>
+
+
+  <main id="forside">
+
+    <!-- Velkomstsektion -->
+    <section class="hero">
+      <p class="eyebrow">Velkommen til Bloom Within</p>
+
+      <h1>Et sted med plads til hele dig.</h1>
+
+      <p class="hero-text">
+        Ærlige fortællinger, viden om mental
+        sundhed og små guides til livet.
+        Her er plads til tanker, følelser
+        og alt det, der gør dig til dig.
+      </p>
+
+      <a href="#blog" class="button">
+        Udforsk bloggen
+      </a>
+    </section>
+
+    <!-- Kategorier -->
+    <section id="kategorier" class="categories">
+      <h2>Hvad fylder hos dig?</h2>
+
+      <p>Find indhold, der passer til dig.</p>
+
+      <div class="category-grid">
+
+        <article class="category-card">
+          <span aria-hidden="true">☾</span>
+          <h3>Tankemylder</h3>
+          <p>Angst, stress og overtænkning.</p>
+           <a href="tankemylder.html" class="read-more">
+        Se kategorien →
+    </a>
+        </article>
+
+        <article class="category-card">
+          <span aria-hidden="true">♡</span>
+          <h3>Selvforståelse</h3>
+          <p>Selvværd, identitet og udvikling.</p>
+          <a href="selvforstaaelse.html" class="read-more">
+        Se kategorien →
+    </a>
+        </article>
+
+        <article class="category-card">
+          <span aria-hidden="true">✿</span>
+          <h3>Små skridt</h3>
+          <p>Guides og redskaber til hverdagen.</p>
+          <a href="smaa-skridt.html" class="read-more">
+        Se kategorien →
+    </a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog" class="blog-section">
+      <h2>Seneste indlæg</h2>
+
+      <p>
+        Personlige fortællinger, viden og guides.
+      </p>
+
+      <div class="blog-grid">
+
+
+    <article class="blog-card">
+
+  <img
+    src="images/blog-1.jpg"
+    alt="En åben notesbog ved siden af en kop te"
+    class="blog-image"
+  >
+
+  <div class="blog-content">
+
+    <p class="post-type">TANKEMYLDER</p>
+
+    <h3>Hvorfor overtænker vi alt?</h3>
+
+    <p class="blog-description">
+  En introduktion til overtænkning,
+  bekymringer og tankemønstre.
+</p>
+
+
+    <span class="reading-time">
+      5 min. læsning
+    </span>
+    
+    <a href="overtænkning.html" class="read-more">
+        Læs indlægget →
+    </a>
+
+
+  </div>
+
+</article>
+
+
+     
+<article class="blog-card">
+
+  <img
+    src="images/blog-2.jpg"
+    alt="Skyggen af en pige som lige er blevet student"
+    class="blog-image"
+  >
+
+  <div class="blog-content">
+
+    <p class="post-type">SELVFORSTÅELSE & SAMFUND</p>
+
+    <h3>Når alle andre virker til at have styr på livet</h3>
+
+    <p class="blog-description">
+  Om forventninger og følelsen af at være bagud.
+</p>
+   
+    <span class="reading-time">
+      7 min. læsning
+    </span>
+
+    <a href="naar-alle-andre-har-styr-paa-livet.html" class="read-more">
+        Læs indlægget →
+    </a>
+
+  </div>
+
+</article>
+<article class="blog-card">
+
+  <img
+    src="images/blog-3.jpg"
+    alt="En pige står i en rapsmark med armene løftet"
+    class="blog-image"
+  >
+
+  <div class="blog-content">
+
+    <p class="post-type">SMÅ SKRIDT</p>
+
+    <h3>5 små øvelser til mere ro</h3>
+
+    <p class="blog-description">
+      Enkle redskaber, du kan afprøve, når tankerne fylder.
+    </p>
+
+    <span class="reading-time">
+      6 min. læsning
+    </span>
+    
+    <a href="oevelser-til-ro.html" class="read-more">
+        Læs indlægget →
+    </a>
+
+  </div>
+
+</article>
+
+      </div>      
+    </section>
+
+    <!-- Om -->
+    <section id="om" class="about">
+       <div class="about-container">
+
+    <!-- Tekst til venstre -->
+    <div class="about-text">
+
+      <p class="about-label">LÆR OS AT KENDE</p>
+
+      <h2>Hvem er Bloom Within?</h2>
+      <p>
+        Bloom Within er et trygt rum for alle kvinder. 
+        Uanset hvem du er, om du lever med psykiske eller fysiske udfordringer, 
+        eller blot ønsker at støtte andre, er der plads til dig her.
+      </p>
+
+      <p>
+        Her finder du personlige fortællinger, brugbare guides og informative blogindlæg. 
+        På sigt ønsker vi at inddrage viden og perspektiver fra relevante fagpersoner og foreninger.
+      </p>
+
+      <p>
+        Bloom Within er skabt med ét formål: 
+        At skabe et fællesskab, hvor der er plads til at være sig selv, 
+        finde støtte og vokse i sit helt eget tempo.
+      </p>
+
+      <a href="om-os.html" class="about-button">
+        Læs mere om historien bag Bloom Within →
+      </a>
+
+    </div>
+
+    <!-- Billede til højre -->
+    <div class="about-image">
+
+      <img
+        src="images/logo.png"
+        alt="Botanisk illustration med blomster og blade"
+      >
+
+    </div>
+
+  </div>
+
+</section>
+
+
+  </main>
+
+ <footer class="site-footer">
+  <div class="footer-container">
+
+    <div class="footer-column">
+
+      <h2>Bloom Within ✿</h2>
+      <p>
+        Et sted med plads til hele dig.
+        Et trygt rum for fortællinger, viden og fællesskab.
+        Her er plads til at vokse i dit eget tempo.
+      </p>
+    </div>
+
+    <div class="footer-column">
+      <h3>Udforsk</h3>
+      <ul>
+        <li><a href="kategorier.html">Kategorier</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="om-os.html">Historien bag</a></li>
+        <li><a href="bloom-together.html">Bloom Together</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>Kontakt</h3>
+      <p>
+        Har du spørgsmål, feedback
+        eller idéer til samarbejde?
+      </p>
+      <a href="kontakt.html">Kontakt Bloom Within →</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>Information</h3>
+      <ul>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li>
+          <a href="privatlivspolitik.html">
+            Privatlivspolitik
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Bloom Within · Skabt med omtanke 🌿</p>
+  </div>
+</footer>
+
+
+</body>
+</html>

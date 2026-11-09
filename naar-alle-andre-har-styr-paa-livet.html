@@ -1,0 +1,583 @@
+
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Når alle andre virker til at have styr på livet | Bloom Within</title>
+
+  <meta name="description"
+        content="En personlig, fiktiv fortælling om at sammenligne sig med andre, føle sig bagud og finde sin egen vej.">
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body class="article-page">
+
+  <a href="#main-content" class="skip-link">
+    Spring til hovedindhold
+  </a>
+
+  <!-- NAVIGATION -->
+  <header class="header">
+
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="">
+      <span>Bloom Within</span>
+    </a>
+
+    <nav aria-label="Hovednavigation">
+      <ul class="nav-links">
+        <li><a href="index.html">Forside</a></li>
+        <li><a href="kategorier.html">Kategorier</a></li>
+        <li>
+          <a href="blog.html" aria-current="page">
+            Blog
+          </a>
+        </li>
+        <li><a href="om-os.html">Historien Bag</a></li>
+        <li><a href="bloom-together.html">Bloom Together</a></li>
+      </ul>
+    </nav>
+
+    <button
+      type="button"
+      class="accessibility-toggle"
+      id="accessibility-toggle"
+      aria-expanded="false"
+      aria-controls="accessibility-panel"
+    >
+      ⚙ Tilgængelighed
+    </button>
+  </header>
+
+  <!-- FÆLLES TILGÆNGELIGHEDSMENU -->
+  <section
+    class="accessibility-panel"
+    id="accessibility-panel"
+    aria-label="Tilgængelighedsindstillinger"
+    hidden
+  >
+    <h2>Tilpas hjemmesiden</h2>
+
+    <div class="accessibility-option">
+      <label for="site-dark-mode">
+        Mørk tilstand
+      </label>
+      <input type="checkbox" id="site-dark-mode">
+    </div>
+
+    <div class="accessibility-option">
+      <label for="site-font-size">
+        Tekststørrelse
+      </label>
+
+      <select id="site-font-size">
+        <option value="normal">Normal</option>
+        <option value="large">Stor</option>
+        <option value="extra-large">Ekstra stor</option>
+      </select>
+    </div>
+
+    <div class="accessibility-option">
+      <label for="site-easy-read">
+        Enklere skrifttype
+      </label>
+      <input type="checkbox" id="site-easy-read">
+    </div>
+
+    <button type="button" id="reset-accessibility">
+      Nulstil indstillinger
+    </button>
+  </section>
+
+  <main id="main-content">
+
+    <article>
+
+      <!-- ARTIKELHEADER -->
+      <header class="article-header">
+
+        <a href="blog.html" class="article-back">
+          ← Tilbage til bloggen
+        </a>
+
+        <p class="article-category">
+          SELVFORSTÅELSE &amp; SAMFUND · CA. 7 MIN. LÆSNING
+        </p>
+
+        <h1>Når alle andre virker til at have styr på livet</h1>
+
+        <p class="article-intro">
+          Om forventninger, sammenligning og følelsen af at være bagud,
+          når alle andre ser ud til at kende deres næste skridt.
+        </p>
+
+        <p class="article-disclaimer">
+          Dette er en fiktiv fortælling skrevet af Bloom Within.
+          Den er ikke en virkelig indsendt læserhistorie.
+        </p>
+
+      </header>
+
+      <!-- ARTIKELBILLEDE -->
+      <div class="article-image">
+        <img
+          src="images/blog-2.jpg"
+          alt="Skyggen af en ung kvinde, der fejrer sin studentertid"
+        >
+      </div>
+
+      <!-- LÆSEVÆRKTØJ -->
+      <section
+        class="reading-tools"
+        aria-labelledby="reading-tools-title"
+      >
+
+        <h2 id="reading-tools-title">
+          Din læseoplevelse
+        </h2>
+
+        <p>
+          Tilpas artiklen, så den passer til dig.
+        </p>
+
+        <div class="reading-tools-buttons">
+
+          <button type="button" id="read-aloud">
+            🔊 Læs artiklen op
+          </button>
+
+          <button type="button"
+                  id="pause-reading"
+                  disabled>
+            ⏸ Pause
+          </button>
+
+          <button type="button"
+                  id="stop-reading"
+                  disabled>
+            ⏹ Stop
+          </button>
+
+          <button type="button"
+                  id="article-dark-mode"
+                  aria-pressed="false">
+            🌙 Mørk tilstand
+          </button>
+
+          <button type="button" id="article-increase-text">
+            A+ Større tekst
+          </button>
+
+          <button type="button" id="article-decrease-text">
+            A− Mindre tekst
+          </button>
+
+          <button type="button"
+                  id="article-easy-read"
+                  aria-pressed="false">
+            Letlæselig skrift
+          </button>
+
+        </div>
+
+        <p
+          id="reading-status"
+          class="reading-status"
+          role="status"
+          aria-live="polite"
+        ></p>
+
+      </section>
+
+      <!-- ARTIKELINDHOLD -->
+      <div class="article-content">
+
+        <h2>"Jeg føler, at alle andre er længere fremme end mig"</h2>
+
+        <p>
+          Hun er 22 år. Flere af hendes venner er flyttet hjemmefra.
+          Nogle er godt i gang med deres uddannelse, andre har fået fast arbejde,
+          og enkelte er flyttet sammen med en kæreste.
+        </p>
+
+        <p>
+          Selv er hun stadig ved at finde ud af, hvad hun vil.
+          Når hun åbner sociale medier, ser hun nye lejligheder,
+          eksamensbeviser og billeder fra rejser.
+          Hun er glad på andres vegne, men mærker samtidig
+          en knude af usikkerhed.
+        </p>
+
+        <aside class="article-quote">
+          <p>
+            "Jeg er glad for mine venner. Men nogle gange føles det,
+            som om alle andre er på vej et sted hen, og jeg står stille."
+          </p>
+        </aside>
+
+        <p>
+          Det sværeste er ikke altid, at hun mangler en plan.
+          Det er tanken om, at hun burde have haft en for længst.
+        </p>
+
+        <h2>Den usynlige tidsplan</h2>
+
+        <p>
+          Efter gymnasiet tog hun et sabbatår.
+          Hun arbejdede, fik nye erfaringer og håbede,
+          at hun med tiden ville blive mere sikker på sit næste skridt.
+        </p>
+
+        <p>
+          Men året gik, og da flere af hendes venner begyndte
+          på uddannelser, begyndte hun at tvivle på sit eget valg.
+        </p>
+
+        <p>
+          Hun blev træt af spørgsmålene:
+          Hvad skal du så nu? Hvornår søger du ind?
+          Ved du ikke snart, hvad du vil?
+        </p>
+
+        <p>
+          Spørgsmålene var måske velmente,
+          men hun hørte dem som påmindelser om alt det,
+          hun endnu ikke havde besluttet.
+        </p>
+
+        <p>
+          Der findes ikke én tidsplan, der passer til alle.
+          Alligevel kan forventninger fra omgivelserne få livet
+          til at føles som en konkurrence,
+          ingen rigtig har meldt sig til.
+        </p>
+
+        <h2>Det, vi ikke ser</h2>
+
+        <p>
+          En aften sad hun og scrollede gennem billeder
+          af venners store øjeblikke.
+        </p>
+
+        <p>
+          Hun lagde mærke til, at hun næsten automatisk
+          brugte dem til at måle sit eget liv.
+          Det slog hende, hvor lidt hun egentlig vidste
+          om alt det, der foregik uden for billederne.
+        </p>
+
+        <aside class="article-quote">
+          <p>
+            "Jeg ved jo ikke, om de føler, at de har styr på det hele.
+            Jeg går bare ud fra det, fordi det ser sådan ud."
+          </p>
+        </aside>
+
+        <p>
+          Et opslag kan fortælle noget ægte om et godt øjeblik.
+          Men det fortæller sjældent hele historien om tvivl,
+          økonomi, usikkerhed eller alle de planer,
+          der blev ændret undervejs.
+        </p>
+
+        <h2>At begynde at lytte til sig selv</h2>
+
+        <p>
+          Hun fandt ikke pludselig svaret på,
+          hvad hun ville med sit liv.
+          Hun havde stadig dage, hvor hun følte sig bagud.
+        </p>
+
+        <p>
+          Men hun begyndte at stille sig selv et andet spørgsmål.
+        </p>
+
+        <p>
+          I stedet for:
+          <em>Hvorfor er jeg ikke nået lige så langt som de andre?</em>
+          prøvede hun at spørge:
+          <em>Hvad ville jeg vælge, hvis jeg ikke skulle
+          sammenligne mig med nogen?</em>
+        </p>
+
+        <p>
+          Svaret var ikke enkelt.
+          Til gengæld gav spørgsmålet plads til
+          at overveje, hvad hun selv ønskede,
+          frem for hvad hun følte, hun burde ønske.
+        </p>
+
+        <h2>Hvis du kan genkende følelsen</h2>
+
+        <p>
+          Måske står du et helt andet sted i livet end hende.
+          Men hvis følelsen af at være bagud dukker op,
+          kan du prøve at møde den med lidt nysgerrighed
+          i stedet for kritik.
+        </p>
+
+        <ul>
+          <li>
+            <strong>Læg mærke til sammenligningen.</strong>
+            Hvornår opstår den, og hvad får dig til at føle,
+            at du burde være et andet sted?
+          </li>
+
+          <li>
+            <strong>Giv dig selv pauser.</strong>
+            Hvis bestemte opslag gør dig urolig,
+            er det okay at tage afstand fra dem.
+          </li>
+
+          <li>
+            <strong>Se efter dine egne fremskridt.</strong>
+            Nye erfaringer, ændrede holdninger
+            og små beslutninger tæller også.
+          </li>
+
+          <li>
+            <strong>Tal med nogen, du stoler på.</strong>
+            Du behøver ikke bære alle spørgsmålene alene.
+          </li>
+        </ul>
+
+        <h2>Du må gerne vokse i dit eget tempo</h2>
+
+        <p>
+          Den 22-årige ved stadig ikke præcis,
+          hvordan hendes fremtid kommer til at se ud.
+        </p>
+
+        <p>
+          Hun øver sig bare i at lade være med
+          at bruge andres milepæle som målestok
+          for sine egne.
+        </p>
+
+        <p>
+          Måske handler det ikke om at have styr på alt.
+          Måske handler det om at finde modet til
+          at tage ét skridt ad gangen,
+          også når man endnu ikke ved,
+          hvor vejen fører hen.
+        </p>
+
+        <aside class="article-quote">
+          <p>
+            Du behøver ikke have styr på hele livet
+            for at være på vej.
+          </p>
+        </aside>
+
+        <!-- BEMÆRKNING -->
+        <aside class="article-note">
+
+          <h2>Om fortællingen</h2>
+
+          <p>
+            Historien og citaterne er fiktive og skrevet
+            af Bloom Within for at sætte ord på følelser,
+            som nogle unge kan genkende.
+          </p>
+
+          <p>
+            Den bygger ikke på en konkret indsendelse
+            eller et interview.
+            Artiklen er til refleksion og erstatter
+            ikke professionel rådgivning.
+          </p>
+
+        </aside>
+
+      </div>
+
+    </article>
+
+    <!-- FORFATTERFELT -->
+    <section
+      class="article-author"
+      aria-labelledby="author-title"
+    >
+
+      <div class="author-card">
+
+        <div class="author-avatar" aria-hidden="true">
+          BW
+        </div>
+
+        <div class="author-information">
+
+          <p class="author-label">SKREVET AF</p>
+
+          <h2 id="author-title">Bloom Within</h2>
+
+          <p>
+        Dato for udgivelse: 16 oktober 2026
+      </p>
+
+          <p>
+            Bloom Within er skabt med et ønske om
+            at give plads til ærlige fortællinger,
+            refleksioner og viden om mental trivsel.
+          </p>
+
+          <p>
+            Her er der plads til at være menneske
+            og vokse i sit eget tempo.
+          </p>
+
+          <a href="om-os.html" class="author-link">
+            Læs historien bag Bloom Within →
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- OM ARTIKLENS TILBLIVELSE -->
+    <section
+      class="article-credits"
+      aria-labelledby="credits-title"
+    >
+
+      <h2 id="credits-title">
+        Bag fortællingen
+      </h2>
+
+      <p class="credits-intro">
+        Denne artikel er skrevet som en fiktiv fortælling
+        og er ikke en indsendt læserhistorie.
+      </p>
+
+      <div class="credits-grid">
+
+        <div class="credit-card">
+
+          <span class="credit-type">
+            FORTÆLLEFORM
+          </span>
+
+          <h3>Fiktiv, anonym hovedperson</h3>
+
+          <p>
+            Den 22-årige hovedperson og hendes citater
+            er opdigtede.
+            Fortællingen er skrevet for at give plads
+            til genkendelse og refleksion.
+          </p>
+
+        </div>
+
+        <div class="credit-card">
+
+          <span class="credit-type">
+            TEKST OG REDAKTION
+          </span>
+
+          <h3>Bloom Within</h3>
+
+          <p>
+            Artiklen er redaktionelt udformet til Bloom Within.
+            Ingen ekstern faglig gennemgang eller
+            samarbejdspartner er angivet.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- TILBAGE TIL BLOGGEN -->
+    <section class="article-ending">
+
+      <p class="eyebrow">
+        BLIV LIDT LÆNGERE
+      </p>
+
+      <h2>Du er ikke alene med dine tanker</h2>
+
+      <p>
+        Læs flere fortællinger, refleksioner
+        og små skridt i dit eget tempo.
+      </p>
+
+      <a href="blog.html" class="button">
+        Udforsk bloggen
+      </a>
+
+    </section>
+
+  </main>
+
+ <footer class="site-footer">
+  <div class="footer-container">
+
+    <div class="footer-column">
+
+      <h2>Bloom Within ✿</h2>
+      <p>
+        Et sted med plads til hele dig.
+        Et trygt rum for fortællinger, viden og fællesskab.
+        Her er plads til at vokse i dit eget tempo.
+      </p>
+    </div>
+
+    <div class="footer-column">
+      <h3>Udforsk</h3>
+      <ul>
+        <li><a href="kategorier.html">Kategorier</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="om-os.html">Historien bag</a></li>
+        <li><a href="bloom-together.html">Bloom Together</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>Kontakt</h3>
+      <p>
+        Har du spørgsmål, feedback
+        eller idéer til samarbejde?
+      </p>
+      <a href="kontakt.html">Kontakt Bloom Within →</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>Information</h3>
+      <ul>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li>
+          <a href="privatlivspolitik.html">
+            Privatlivspolitik
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Bloom Within · Skabt med omtanke 🌿</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Tankemylder | Bloom Within</title>
+
+  <meta name="description"
+        content="Udforsk artikler om tankemylder, overtænkning, bekymringer og angst hos Bloom Within.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body class="category-detail-page">
+
+  <a href="#main-content" class="skip-link">
+    Spring til hovedindhold
+  </a>
+
+  <!-- NAVIGATION -->
+  <header class="header">
+
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="">
+      <span>Bloom Within</span>
+    </a>
+
+    <nav aria-label="Hovednavigation">
+      <ul class="nav-links">
+        <li><a href="index.html">Forside</a></li>
+        <li>
+          <a href="kategorier.html" aria-current="page">
+            Kategorier
+          </a>
+        </li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="om-os.html">Historien Bag</a></li>
+        <li><a href="bloom-together.html">Bloom Together</a></li>
+      </ul>
+    </nav>
+
+    <button
+      type="button"
+      class="accessibility-toggle"
+      id="accessibility-toggle"
+      aria-expanded="false"
+      aria-controls="accessibility-panel"
+    >
+      ⚙ Tilgængelighed
+    </button>
+
+  </header>
+
+  <!-- TILGÆNGELIGHEDSMENU -->
+  <section
+    class="accessibility-panel"
+    id="accessibility-panel"
+    aria-label="Tilgængelighedsindstillinger"
+    hidden
+  >
+
+    <h2>Tilpas hjemmesiden</h2>
+
+    <div class="accessibility-option">
+      <label for="site-dark-mode">Mørk tilstand</label>
+      <input type="checkbox" id="site-dark-mode">
+    </div>
+
+    <div class="accessibility-option">
+      <label for="site-font-size">Tekststørrelse</label>
+
+      <select id="site-font-size">
+        <option value="normal">Normal</option>
+        <option value="large">Stor</option>
+        <option value="extra-large">Ekstra stor</option>
+      </select>
+    </div>
+
+    <div class="accessibility-option">
+      <label for="site-easy-read">Enklere skrifttype</label>
+      <input type="checkbox" id="site-easy-read">
+    </div>
+
+    <button type="button" id="reset-accessibility">
+      Nulstil indstillinger
+    </button>
+
+  </section>
+
+  <main id="main-content">
+
+    <!-- KATEGORIHEADER -->
+    <section class="category-detail-hero">
+
+      <div class="category-detail-hero-inner">
+
+        <a href="kategorier.html" class="category-detail-back">
+          ← Alle kategorier
+        </a>
+
+        <p class="eyebrow">UDFORSK BLOOM WITHIN</p>
+
+        <h1>Tankemylder</h1>
+
+        <p>
+          Når tankerne fylder lidt for meget.
+          Her er plads til spørgsmålene, bekymringerne
+          og alt det, der kan være svært at give slip på.
+          Udforsk artikler og refleksioner om tankemylder,
+          overtænkning og følelsen af uro.
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ARTIKLER -->
+    <section
+      class="category-detail-section"
+      aria-labelledby="category-articles-heading"
+    >
+
+      <div class="category-detail-container">
+
+        <div class="category-detail-intro">
+
+          <p class="eyebrow">LÆS OG UDFORSK</p>
+
+          <h2 id="category-articles-heading">
+            Artikler om tankemylder
+          </h2>
+
+          <p>
+            Nogle tanker er svære at lægge fra sig.
+            Her finder du indhold, der sætter ord på
+            det, mange kan opleve.
+          </p>
+
+        </div>
+
+        <div class="category-detail-grid">
+
+          <!-- BLOGINDLÆG 1 -->
+          <article class="category-detail-card">
+
+            <a href="overtænkning.html"
+               class="category-detail-card-image">
+              <img
+                src="images/blog-1.jpg"
+                alt="En kvinde betragter et tåget landskab"
+                loading="lazy"
+              >
+            </a>
+
+            <div class="category-detail-card-content">
+
+              <p class="article-category">
+                TANKEMY LDER · 5 MIN. LÆSNING
+              </p>
+
+              <h3>
+                <a href="overtænkning.html">
+                  Hvorfor overtænker vi alt?
+                </a>
+              </h3>
+
+              <p>
+                Når tankerne ikke vil give slip,
+                og selv små situationer bliver
+                til store spørgsmål.
+              </p>
+
+              <a href="overtænkning.html"
+                 class="category-detail-card-link">
+                Læs artiklen
+                <span aria-hidden="true">→</span>
+              </a>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- FREMTIDIGT INDHOLD -->
+    <section class="category-detail-more">
+
+      <div class="category-detail-more-inner">
+
+        <p class="eyebrow">PLADS TIL AT VOKSE</p>
+
+        <h2>Flere fortællinger er på vej</h2>
+
+        <p>
+          Bloom Within er et sted, der vokser
+          lidt efter lidt. Med tiden vil du finde
+          flere artikler, fortællinger og guides
+          om tankemylder og mental trivsel.
+        </p>
+
+        <a href="blog.html" class="button">
+          Udforsk bloggen
+        </a>
+
+      </div>
+
+    </section>
+
+    <!-- TILBAGE -->
+    <section class="category-detail-ending">
+
+      <a href="kategorier.html">
+        ← Tilbage til alle kategorier
+      </a>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+  <div class="footer-container">
+
+    <div class="footer-column">
+
+      <h2>Bloom Within ✿</h2>
+      <p>
+        Et sted med plads til hele dig.
+        Et trygt rum for fortællinger, viden og fællesskab.
+        Her er plads til at vokse i dit eget tempo.
+      </p>
+    </div>
+
+    <div class="footer-column">
+      <h3>Udforsk</h3>
+      <ul>
+        <li><a href="kategorier.html">Kategorier</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="om-os.html">Historien bag</a></li>
+        <li><a href="bloom-together.html">Bloom Together</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>Kontakt</h3>
+      <p>
+        Har du spørgsmål, feedback
+        eller idéer til samarbejde?
+      </p>
+      <a href="kontakt.html">Kontakt Bloom Within →</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>Information</h3>
+      <ul>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li>
+          <a href="privatlivspolitik.html">
+            Privatlivspolitik
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Bloom Within · Skabt med omtanke 🌿</p>
+  </div>
+</footer>
+
+</body>
+</html>

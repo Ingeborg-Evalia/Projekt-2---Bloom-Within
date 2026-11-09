@@ -1,0 +1,681 @@
+
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>5 små øvelser til mere ro | Bloom Within</title>
+
+  <meta name="description"
+        content="Udforsk fem enkle øvelser til at finde små øjeblikke af ro i hverdagen. Praktiske forslag til nærvær, vejrtrækning og afspænding.">
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body class="article-page">
+
+  <a href="#main-content" class="skip-link">
+    Spring til hovedindhold
+  </a>
+
+  <!-- NAVIGATION -->
+  <header class="header">
+
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="">
+      <span>Bloom Within</span>
+    </a>
+
+    <nav aria-label="Hovednavigation">
+      <ul class="nav-links">
+        <li><a href="index.html">Forside</a></li>
+        <li><a href="kategorier.html">Kategorier</a></li>
+        <li>
+          <a href="blog.html" aria-current="page">
+            Blog
+          </a>
+        </li>
+        <li><a href="om-os.html">Historien bag</a></li>
+        <li><a href="bloom-together.html">Bloom Together</a></li>
+      </ul>
+    </nav>
+
+    <button
+      type="button"
+      class="accessibility-toggle"
+      id="accessibility-toggle"
+      aria-expanded="false"
+      aria-controls="accessibility-panel"
+    >
+      ⚙ Tilgængelighed
+    </button>
+
+  </header>
+
+  <!-- FÆLLES TILGÆNGELIGHEDSMENU -->
+  <section
+    class="accessibility-panel"
+    id="accessibility-panel"
+    aria-label="Tilgængelighedsindstillinger"
+    hidden
+  >
+
+    <h2>Tilpas hjemmesiden</h2>
+
+    <div class="accessibility-option">
+      <label for="site-dark-mode">
+        Mørk tilstand
+      </label>
+      <input type="checkbox" id="site-dark-mode">
+    </div>
+
+    <div class="accessibility-option">
+      <label for="site-font-size">
+        Tekststørrelse
+      </label>
+
+      <select id="site-font-size">
+        <option value="normal">Normal</option>
+        <option value="large">Stor</option>
+        <option value="extra-large">Ekstra stor</option>
+      </select>
+    </div>
+
+    <div class="accessibility-option">
+      <label for="site-easy-read">
+        Enklere skrifttype
+      </label>
+      <input type="checkbox" id="site-easy-read">
+    </div>
+
+    <button type="button" id="reset-accessibility">
+      Nulstil indstillinger
+    </button>
+
+  </section>
+
+  <main id="main-content">
+
+    <article>
+
+      <!-- ARTIKELHEADER -->
+      <header class="article-header">
+
+        <a href="blog.html" class="article-back">
+          ← Tilbage til bloggen
+        </a>
+
+        <p class="article-category">
+          SMÅ SKRIDT · CA. 6 MIN. LÆSNING
+        </p>
+
+        <h1>5 små øvelser til mere ro</h1>
+
+        <p class="article-intro">
+          Når tankerne fylder, kan små pauser være en
+          måde at vende opmærksomheden mod nuet.
+          Her finder du fem enkle øvelser,
+          du kan afprøve i dit eget tempo.
+        </p>
+
+      </header>
+
+      <!-- ARTIKELBILLEDE -->
+      <div class="article-image">
+
+        <img
+          src="images/blog-3.jpg"
+          alt="En pige står i en rapsmark med armene løftet"
+        >
+
+      </div>
+
+      <!-- LÆSEVÆRKTØJ -->
+      <section
+        class="reading-tools"
+        aria-labelledby="reading-tools-title"
+      >
+
+        <h2 id="reading-tools-title">
+          Din læseoplevelse
+        </h2>
+
+        <p>
+          Tilpas artiklen, så den passer til dig.
+        </p>
+
+        <div class="reading-tools-buttons">
+
+          <button type="button" id="read-aloud">
+            🔊 Læs artiklen op
+          </button>
+
+          <button
+            type="button"
+            id="pause-reading"
+            disabled
+          >
+            ⏸ Pause
+          </button>
+
+          <button
+            type="button"
+            id="stop-reading"
+            disabled
+          >
+            ⏹ Stop
+          </button>
+
+          <button
+            type="button"
+            id="article-dark-mode"
+            aria-pressed="false"
+          >
+            🌙 Mørk tilstand
+          </button>
+
+          <button
+            type="button"
+            id="article-increase-text"
+          >
+            A+ Større tekst
+          </button>
+
+          <button
+            type="button"
+            id="article-decrease-text"
+          >
+            A− Mindre tekst
+          </button>
+
+          <button
+            type="button"
+            id="article-easy-read"
+            aria-pressed="false"
+          >
+            Letlæselig skrift
+          </button>
+
+        </div>
+
+        <p
+          id="reading-status"
+          class="reading-status"
+          role="status"
+          aria-live="polite"
+        ></p>
+
+      </section>
+
+      <!-- ARTIKELINDHOLD -->
+      <div class="article-content">
+
+        <h2>Ro behøver ikke være noget stort</h2>
+
+        <p>
+          Nogle dage føles hovedet fyldt med tanker.
+          Måske har du mange ting, du skal nå,
+          måske bekymrer du dig om noget,
+          eller måske har du bare svært ved
+          at finde et roligt øjeblik.
+        </p>
+
+        <p>
+          Når vi taler om at finde ro, tænker mange
+          på meditation, lange gåture eller
+          en hel aften uden forstyrrelser.
+          Men en pause behøver ikke tage lang tid.
+        </p>
+
+        <p>
+          Små øvelser kan hjælpe nogle mennesker
+          med at rette opmærksomheden mod kroppen,
+          omgivelserne eller det, der sker lige nu.
+          De fjerner ikke nødvendigvis bekymringer,
+          men kan give et lille pusterum.
+        </p>
+
+        <aside class="article-quote">
+          <p>
+            Du behøver ikke gøre alle fem øvelser.
+            Måske er én lille pause nok for i dag.
+          </p>
+        </aside>
+
+        <h2>1. Læg mærke til dine omgivelser</h2>
+
+        <p>
+          Når tankerne fylder meget, kan det være
+          hjælpsomt at flytte opmærksomheden
+          fra tankerne til det, du kan sanse.
+          Denne type øvelse kaldes ofte grounding.
+        </p>
+
+        <p>
+          Prøv at se dig omkring og læg mærke til:
+        </p>
+
+        <ul>
+          <li>Fem ting, du kan se.</li>
+          <li>Fire ting, du kan mærke.</li>
+          <li>Tre lyde, du kan høre.</li>
+          <li>To dufte, du kan registrere.</li>
+          <li>Én smag, du kan lægge mærke til.</li>
+        </ul>
+
+        <p>
+          Du behøver ikke gennemføre alle punkterne.
+          Du kan også nøjes med at beskrive
+          tre ting, du ser omkring dig.
+        </p>
+
+        <p>
+          Hvis det føles ubehageligt at fokusere
+          på bestemte sanser, kan du springe dem over.
+        </p>
+
+        <h2>2. Giv din vejrtrækning opmærksomhed</h2>
+
+        <p>
+          Vejrtrækningen ændrer sig ofte,
+          når vi er spændte eller urolige.
+          Nogle oplever, at det hjælper
+          at sætte tempoet lidt ned.
+        </p>
+
+        <p>
+          Du kan prøve følgende:
+        </p>
+
+        <ul>
+          <li>Sæt dig et sted, hvor du sidder behageligt.</li>
+          <li>Læg mærke til din naturlige vejrtrækning.</li>
+          <li>Træk vejret roligt ind uden at presse luften ned.</li>
+          <li>Lad udåndingen ske langsomt og ubesværet.</li>
+          <li>Gentag et par gange, hvis det føles rart.</li>
+        </ul>
+
+        <p>
+          Du skal ikke holde vejret eller forsøge
+          at trække vejret dybere, end det føles naturligt.
+        </p>
+
+        <p>
+          For nogle kan fokus på vejrtrækningen
+          gøre uroen større. Hvis det sker,
+          kan du stoppe og vælge en anden øvelse.
+        </p>
+
+        <h2>3. Mærk kontakten med underlaget</h2>
+
+        <p>
+          Denne øvelse handler om at lægge mærke
+          til den støtte, kroppen allerede har.
+          Den kan udføres siddende eller liggende.
+        </p>
+
+        <ul>
+          <li>
+            Find en stilling, der føles behagelig.
+          </li>
+          <li>
+            Læg mærke til kontakten mellem
+            kroppen og stolen, sengen eller gulvet.
+          </li>
+          <li>
+            Registrér, hvor underlaget støtter dig.
+          </li>
+          <li>
+            Se dig eventuelt omkring, mens du
+            fortsat mærker kontakten med underlaget.
+          </li>
+        </ul>
+
+        <p>
+          Du behøver ikke lukke øjnene.
+          Det er helt fint at holde dem åbne
+          og fokusere på et punkt i rummet.
+        </p>
+
+        <h2>4. Giv kroppen en lille pause</h2>
+
+        <p>
+          Mange spænder i kroppen uden at lægge
+          mærke til det, især når de koncentrerer
+          sig eller er bekymrede.
+        </p>
+
+        <p>
+          En kort pause kan være en mulighed
+          for at undersøge, om du sidder
+          eller står på en behagelig måde.
+        </p>
+
+        <ul>
+          <li>Læg mærke til dine skuldre.</li>
+          <li>Prøv forsigtigt at lade dem hvile.</li>
+          <li>Slip eventuelt spændingen i kæben.</li>
+          <li>Skift stilling, hvis kroppen har brug for det.</li>
+          <li>Bevæg dig blidt, hvis det føles behageligt.</li>
+        </ul>
+
+        <p>
+          Du skal ikke presse kroppen ud i
+          bestemte stillinger eller bevægelser.
+          Hvis noget gør ondt, skal du stoppe.
+        </p>
+
+        <h2>5. Skriv én tanke ned</h2>
+
+        <p>
+          Når mange tanker dukker op på samme tid,
+          kan det være svært at finde ud af,
+          hvad der egentlig fylder mest.
+        </p>
+
+        <p>
+          For nogle hjælper det at skrive
+          tankerne ned uden at forsøge
+          at løse dem med det samme.
+        </p>
+
+        <p>
+          Find et stykke papir eller brug
+          en note på din telefon.
+          Prøv at færdiggøre én af disse sætninger:
+        </p>
+
+        <ul>
+          <li>"Lige nu fylder..."</li>
+          <li>"Noget, jeg bekymrer mig om, er..."</li>
+          <li>"Det, jeg har brug for lige nu, er..."</li>
+          <li>"En lille ting, jeg kan gøre i dag, er..."</li>
+        </ul>
+
+        <p>
+          Du bestemmer selv, hvor meget du skriver.
+          Det behøver ikke være pænt, struktureret
+          eller give mening for andre.
+        </p>
+
+        <aside class="article-quote">
+          <p>
+            En pause behøver ikke ændre hele din dag
+            for at være værd at tage.
+          </p>
+        </aside>
+
+        <h2>Hvilken øvelse passer til dig?</h2>
+
+        <p>
+          Der findes ikke én øvelse, der hjælper alle.
+          Nogle foretrækker at bevæge sig,
+          andre finder det lettere at fokusere
+          på omgivelserne eller skrive deres tanker ned.
+        </p>
+
+        <p>
+          Du kan prøve forskellige øvelser
+          og lægge mærke til, hvad der føles
+          hjælpsomt for dig.
+          Det er også helt okay,
+          hvis en øvelse ikke virker.
+        </p>
+
+        <p>
+          Målet er ikke at tvinge dig selv til
+          at føle ro, men at give dig mulighed
+          for at holde en lille pause.
+        </p>
+
+        <h2>En sidste tanke</h2>
+
+        <p>
+          Hverdagen kan være fyldt med krav,
+          forventninger og indtryk.
+          Det er ikke altid muligt at ændre
+          det, der sker omkring os.
+        </p>
+
+        <p>
+          Men nogle gange kan vi skabe
+          et lille øjeblik, hvor vi
+          ikke behøver gøre noget bestemt.
+        </p>
+
+        <p>
+          Måske begynder det med at se ud ad vinduet,
+          mærke stolen under sig eller
+          skrive en enkelt tanke ned.
+        </p>
+
+        <p>
+          Du må gerne finde din egen måde
+          at holde pause på.
+        </p>
+
+        <!-- FAGLIG BEMÆRKNING -->
+        <aside class="article-note">
+
+          <h2>Godt at vide</h2>
+
+          <p>
+            Øvelserne er generelle forslag til
+            afspænding, nærvær og opmærksomhed.
+            De er ikke en behandling og
+            kan opleves forskelligt fra person til person.
+          </p>
+
+          <p>
+            Artiklen er endnu ikke fagligt
+            gennemgået af en psykolog.
+            Den erstatter ikke individuel
+            rådgivning, undersøgelse eller behandling.
+          </p>
+
+          <p>
+            Hvis uro, angst eller andre symptomer
+            påvirker din hverdag meget,
+            kan du tale med din læge
+            eller en relevant fagperson.
+          </p>
+
+        </aside>
+
+      </div>
+
+    </article>
+
+    <!-- FORFATTERFELT -->
+    <section
+      class="article-author"
+      aria-labelledby="author-title"
+    >
+
+      <div class="author-card">
+
+        <div class="author-avatar" aria-hidden="true">
+          BW
+        </div>
+
+        <div class="author-information">
+
+          <p class="author-label">SKREVET AF</p>
+
+          <h2 id="author-title">
+            Bloom Within
+          </h2>
+
+          <p>
+        Dato for udgivelse: 28 oktober 2026
+      </p>
+
+          <p>
+            Bloom Within er skabt med et ønske om
+            at gøre viden om mental trivsel
+            mere tilgængelig og give plads
+            til ærlige fortællinger og refleksioner.
+          </p>
+
+          <p>
+            Her er der plads til at være menneske
+            og vokse i sit eget tempo.
+          </p>
+
+          <a href="om-os.html" class="author-link">
+            Læs historien bag Bloom Within →
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- FAGLIG KVALITETSSIKRING -->
+    <section
+      class="article-credits"
+      aria-labelledby="credits-title"
+    >
+
+      <h2 id="credits-title">
+        Bag artiklen
+      </h2>
+
+      <p class="credits-intro">
+        Vi ønsker, at indhold om mental trivsel
+        skal være tydeligt og ansvarligt.
+        Her kan du se, hvem der står bag artiklen,
+        og om den er fagligt gennemgået.
+      </p>
+
+      <div class="credits-grid">
+
+        <div class="credit-card">
+
+          <span class="credit-type">
+            TEKST OG REDAKTION
+          </span>
+
+          <h3>Bloom Within</h3>
+
+          <p>
+            Artiklen er udarbejdet til Bloom Within
+            med fokus på enkle og tilgængelige
+            øvelser til hverdagen.
+          </p>
+
+        </div>
+
+        <div class="credit-card">
+
+          <span class="credit-type">
+            FAGLIG GENNEMGANG
+          </span>
+
+          <h3>Endnu ikke gennemgået</h3>
+
+          <p>
+            Artiklen afventer faglig gennemgang.
+            Der er endnu ikke tilknyttet
+            en psykolog som faglig reviewer.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- TILBAGE TIL BLOGGEN -->
+    <section class="article-ending">
+
+      <p class="eyebrow">
+        SMÅ SKRIDT TÆLLER OGSÅ
+      </p>
+
+      <h2>Find mere plads til dig selv</h2>
+
+      <p>
+        Udforsk flere fortællinger,
+        guides og refleksioner
+        om mental trivsel.
+      </p>
+
+      <a href="blog.html" class="button">
+        Udforsk bloggen
+      </a>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+  <div class="footer-container">
+
+    <div class="footer-column">
+
+      <h2>Bloom Within ✿</h2>
+      <p>
+        Et sted med plads til hele dig.
+        Et trygt rum for fortællinger, viden og fællesskab.
+        Her er plads til at vokse i dit eget tempo.
+      </p>
+    </div>
+
+    <div class="footer-column">
+      <h3>Udforsk</h3>
+      <ul>
+        <li><a href="kategorier.html">Kategorier</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="om-os.html">Historien bag</a></li>
+        <li><a href="bloom-together.html">Bloom Together</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>Kontakt</h3>
+      <p>
+        Har du spørgsmål, feedback
+        eller idéer til samarbejde?
+      </p>
+      <a href="kontakt.html">Kontakt Bloom Within →</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>Information</h3>
+      <ul>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li>
+          <a href="privatlivspolitik.html">
+            Privatlivspolitik
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Bloom Within · Skabt med omtanke 🌿</p>
+  </div>
+</footer>
+
+</body>
+</html>

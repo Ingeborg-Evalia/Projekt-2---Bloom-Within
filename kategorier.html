@@ -1,0 +1,397 @@
+
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Kategorier | Bloom Within</title>
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body class="categories-page">
+
+  <!-- NAVIGATION -->
+  <header class="header">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="">
+      <span>Bloom Within</span>
+    </a>
+
+    <nav aria-label="Hovednavigation">
+      <ul class="nav-links">
+        <li><a href="index.html">Forside</a></li>
+        <li>
+          <a href="kategorier.html" aria-current="page">
+            Kategorier
+          </a>
+        </li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="om-os.html">Historien Bag</a></li>
+        <li><a href="bloom-together.html">Bloom Together</a></li>
+      </ul>
+    </nav>
+
+    <!-- TILGÆNGELIGHED -->
+<button
+  type="button"
+  class="accessibility-toggle"
+  id="accessibility-toggle"
+  aria-expanded="false"
+  aria-controls="accessibility-panel"
+>
+  ⚙ Tilgængelighed
+</button>
+  </header>
+
+<!-- FÆLLES TILGÆNGELIGHEDSMENU -->
+<section
+  class="accessibility-panel"
+  id="accessibility-panel"
+  aria-label="Tilgængelighedsindstillinger"
+  hidden
+>
+  <h2>Tilpas hjemmesiden</h2>
+
+  <div class="accessibility-option">
+    <label for="site-dark-mode">
+      Mørk tilstand
+    </label>
+
+    <input
+      type="checkbox"
+      id="site-dark-mode"
+    >
+  </div>
+
+  <div class="accessibility-option">
+    <label for="site-font-size">
+      Tekststørrelse
+    </label>
+
+    <select id="site-font-size">
+      <option value="normal">Normal</option>
+      <option value="large">Stor</option>
+      <option value="extra-large">Ekstra stor</option>
+    </select>
+  </div>
+
+  <div class="accessibility-option">
+    <label for="site-easy-read">
+      Enklere skrifttype
+    </label>
+
+    <input
+      type="checkbox"
+      id="site-easy-read"
+    >
+  </div>
+
+  <button type="button" id="reset-accessibility">
+    Nulstil indstillinger
+  </button>
+</section>
+
+
+  <main>
+
+    <!-- INTRODUKTION -->
+    <section class="categories-hero">
+      <p class="eyebrow">UDFORSK BLOOM WITHIN</p>
+
+      <h1>Et sted til alle dine tanker</h1>
+
+      <p>
+        Nogle dage har vi brug for svar.
+        Andre dage har vi bare brug for at føle os forstået.
+
+        Her finder du fortællinger, refleksioner
+        og inspiration til det, der fylder i livet.
+        Udforsk det, der giver mening for dig.
+      </p>
+    </section>
+
+    <!-- KATEGORIER -->
+    <section class="categories-section"
+             aria-labelledby="categories-heading">
+
+      <div class="categories-container">
+
+        <div class="categories-intro">
+          <p class="eyebrow">FIND DIN VEJ</p>
+          <h2 id="categories-heading">
+            Hvad fylder hos dig?
+          </h2>
+        </div>
+
+        <div class="categories-grid">
+
+          <!-- TANKEMY LDER -->
+          <article class="category-card">
+            <img src="images/tankemylder.jpg"
+                 alt="En drømmende skovsti omgivet af tåge"
+                 loading="lazy">
+
+            <div class="category-content">
+              <h3>Tankemylder</h3>
+              <p>
+                Når tankerne fylder lidt for meget.
+                Læs om overtænkning, bekymringer,
+                angst og alt det, der kan være
+                svært at give slip på.
+              </p>
+
+              <a href="tankemylder.html"
+                 class="category-link">
+                Udforsk kategorien
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- SELVFORSTÅELSE -->
+          <article class="category-card">
+            <img src="images/selvforstaaelse.jpg"
+                 alt="Et spejl omgivet af blomster"
+                 loading="lazy">
+
+            <div class="category-content">
+              <h3>Selvforståelse</h3>
+              <p>
+                At lære sig selv at kende i sit eget
+                tempo. Om identitet, selvværd,
+                følelser, grænser og selvaccept.
+              </p>
+
+              <a href="selvforstaaelse.html"
+                 class="category-link">
+                Udforsk kategorien
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- SMÅ SKRIDT -->
+          <article class="category-card">
+            <img src="images/smaa-skridt.jpg"
+                 alt="Små trædesten gennem en grøn have"
+                 loading="lazy">
+
+            <div class="category-content">
+              <h3>Små skridt</h3>
+              <p>
+                Forandring behøver ikke ske på én dag.
+                Find små guides, hverdagsråd og
+                inspiration til at skabe mere ro
+                og overskud.
+              </p>
+
+              <a href="smaa-skridt.html"
+                 class="category-link">
+                Udforsk kategorien
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- PERSONLIGE FORTÆLLINGER -->
+          <article class="category-card">
+            <img src="images/personlige-fortaellinger.jpg"
+                 alt="En åben notesbog med tørrede blomster"
+                 loading="lazy">
+
+            <div class="category-content">
+              <h3>Personlige fortællinger</h3>
+              <p>
+                Ærlige historier fra virkeligheden.
+                Om de svære dage, de gode øjeblikke
+                og alt det, vi oplever undervejs.
+              </p>
+
+              <a href="personlige-fortaellinger.html"
+                 class="category-link">
+                Udforsk kategorien
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- SAMFUND -->
+          <article class="category-card">
+            <img src="images/samfund.jpg"
+                 alt="En stemningsfuld by med mennesker"
+                 loading="lazy">
+
+            <div class="category-content">
+              <h3>Samfund</h3>
+              <p>
+                Når verden omkring os påvirker,
+                hvordan vi har det. Om forventninger,
+                præstationspres, sociale medier,
+                normer og tabuer.
+              </p>
+
+              <a href="samfund.html"
+                 class="category-link">
+                Udforsk kategorien
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- SOCIALT -->
+          <article class="category-card">
+            <img src="images/socialt.jpg"
+                 alt="To hyggelige stole i en blomstrende have"
+                 loading="lazy">
+
+            <div class="category-content">
+              <h3>Socialt</h3>
+              <p>
+                Relationer, fællesskaber og følelsen
+                af at høre til. Om venskaber,
+                ensomhed, sociale situationer
+                og det at finde sin plads.
+              </p>
+
+              <a href="socialt.html"
+                 class="category-link">
+                Udforsk kategorien
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- MERE END BARE EN DIAGNOSE -->
+          <article class="category-card">
+            <img src="images/mere-end-en-diagnose.jpg"
+                 alt="En blomst, der vokser mellem sten"
+                 loading="lazy">
+
+            <div class="category-content">
+              <h3>Mere end bare en diagnose</h3>
+              <p>
+                Du er så meget mere end det, du
+                lever med. Udforsk viden og
+                erfaringer om psykiske og fysiske
+                diagnoser, funktionsnedsættelser
+                og livet med dem.
+              </p>
+
+              <a href="mere-end-en-diagnose.html"
+                 class="category-link">
+                Udforsk kategorien
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+
+<!-- DATING, SEX & SAMLIV -->
+<article class="category-card">
+
+  <img
+    src="images/dating-sex-samliv.jpg"
+    alt="To blomstrende ranker, der flettes sammen i en romantisk have"
+    loading="lazy"
+  >
+
+  <div class="category-content">
+
+    <h3>Dating, sex &amp; samliv</h3>
+
+    <p>
+      Relationer, nærhed og alt det midt imellem.
+      Udforsk kærlighed, dating, seksualitet,
+      intimitet og de forventninger, der kan følge med.
+      Et sted til refleksioner om egne grænser,
+      behov og relationer.
+    </p>
+
+    <a href="dating-sex-samliv.html"
+       class="category-link">
+      Udforsk kategorien
+      <span aria-hidden="true">→</span>
+    </a>
+
+  </div>
+
+</article>
+
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <div class="footer-column">
+
+      <h2>Bloom Within ✿</h2>
+      <p>
+        Et sted med plads til hele dig.
+        Et trygt rum for fortællinger, viden og fællesskab.
+        Her er plads til at vokse i dit eget tempo.
+      </p>
+    </div>
+
+    <div class="footer-column">
+      <h3>Udforsk</h3>
+      <ul>
+        <li><a href="kategorier.html">Kategorier</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="om-os.html">Historien bag</a></li>
+        <li><a href="bloom-together.html">Bloom Together</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>Kontakt</h3>
+      <p>
+        Har du spørgsmål, feedback
+        eller idéer til samarbejde?
+      </p>
+      <a href="kontakt.html">Kontakt Bloom Within →</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>Information</h3>
+      <ul>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li>
+          <a href="privatlivspolitik.html">
+            Privatlivspolitik
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Bloom Within · Skabt med omtanke 🌿</p>
+  </div>
+</footer>
+
+
+</body>
+</html>
