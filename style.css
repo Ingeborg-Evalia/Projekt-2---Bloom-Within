@@ -4040,3 +4040,158 @@ body.dark-mode .site-footer {
   border-top: 2px solid #A6B09C;
 }
 
+
+
+/* =====================================
+   DARK MODE - TILGÆNGELIGHEDSMENU
+===================================== */
+
+body.dark-mode .accessibility-panel {
+  background-color: #26382D;
+  color: #F5EFE6;
+  border-color: #A6B09C;
+}
+
+/* Overskrifter og labels */
+body.dark-mode .accessibility-panel h2,
+body.dark-mode .accessibility-option label {
+  color: #F5EFE6;
+}
+
+/* Dropdown */
+body.dark-mode .accessibility-option select {
+  background-color: #354A3C;
+  color: #F5EFE6;
+  border: 2px solid #A6B09C;
+}
+
+/* Checkbox */
+body.dark-mode .accessibility-option input[type="checkbox"] {
+  accent-color: #A6B09C;
+}
+
+/* Skillelinjer */
+body.dark-mode .accessibility-option {
+  border-bottom-color: #607365;
+}
+
+
+
+/* =====================================
+   BLOOM TOGETHER - DARK MODE
+===================================== */
+
+/* Sidens baggrund */
+body.bloom-together-page.dark-mode {
+  background-color: #19271F;
+  color: #F5EFE6;
+}
+
+/* Overskrifter og tekst */
+body.bloom-together-page.dark-mode
+.bt-section-heading h2,
+body.bloom-together-page.dark-mode
+.bt-section-heading p,
+body.bloom-together-page.dark-mode
+.bt-status,
+body.bloom-together-page.dark-mode
+.bt-guidelines h2 {
+  color: #F5EFE6;
+}
+
+/* Opslagskort */
+body.bloom-together-page.dark-mode
+.bt-post-card,
+body.bloom-together-page.dark-mode
+.bt-post-form-section {
+  background-color: #354A3C;
+  color: #F5EFE6;
+}
+
+/* Tekst i opslag */
+body.bloom-together-page.dark-mode
+.bt-post-card h3,
+body.bloom-together-page.dark-mode
+.bt-post-text,
+body.bloom-together-page.dark-mode
+.bt-post-meta,
+body.bloom-together-page.dark-mode
+.bt-post-form-section h3,
+body.bloom-together-page.dark-mode
+#bt-post-form label,
+body.bloom-together-page.dark-mode
+.bt-action {
+  color: #F5EFE6;
+}
+
+/* Kategorifiltre */
+body.bloom-together-page.dark-mode
+.bt-filter {
+  background-color: #354A3C;
+  color: #F5EFE6;
+  border-color: #A6B09C;
+}
+
+/* Aktivt filter */
+body.bloom-together-page.dark-mode
+.bt-filter.active,
+body.bloom-together-page.dark-mode
+.bt-filter[aria-pressed="true"] {
+  background-color: #A6B09C;
+  color: #19271F;
+}
+
+/* Kategorimærker */
+body.bloom-together-page.dark-mode
+.bt-post-category {
+  background-color: #E7D8C4;
+  color: #324237;
+}
+
+/* Svar under opslag */
+body.bloom-together-page.dark-mode
+.bt-reply {
+  background-color: #26382D;
+  color: #F5EFE6;
+}
+
+/* Retningslinjer */
+body.bloom-together-page.dark-mode
+.bt-guidelines {
+  background-color: #26382D;
+  color: #F5EFE6;
+}
+
+body.bloom-together-page.dark-mode
+.bt-guidelines article {
+  background-color: #354A3C;
+  color: #F5EFE6;
+}
+
+/* Formularfelter */
+body.bloom-together-page.dark-mode
+#bt-post-form input,
+body.bloom-together-page.dark-mode
+#bt-post-form select,
+body.bloom-together-page.dark-mode
+#bt-post-form textarea,
+body.bloom-together-page.dark-mode
+.bt-reply-form textarea {
+  background-color: #26382D;
+  color: #F5EFE6;
+  border-color: #A6B09C;
+}
+
+/* Knapper */
+body.bloom-together-page.dark-mode
+.bt-primary-button {
+  background-color: #A6B09C;
+  color: #19271F;
+  border-color: #A6B09C;
+}
+
+body.bloom-together-page.dark-mode
+.bt-secondary-button {
+  color: #F5EFE6;
+  border-color: #A6B09C;
+}
