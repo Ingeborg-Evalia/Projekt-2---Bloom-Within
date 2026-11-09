@@ -4241,3 +4241,42 @@ body.bloom-together-page.dark-mode
 .accessibility-panel h2 {
   padding-right: 45px;
 }
+
+
+
+/* =====================================
+   FLYDENDE TILGÆNGELIGHEDSMENU
+===================================== */
+
+/* Headeren skal ikke vokse med menuen */
+.header {
+  position: relative;
+}
+
+/* Panelet fjernes fra det normale layout */
+.accessibility-panel {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 20px;
+
+  width: min(400px, calc(100vw - 32px));
+  max-height: calc(100dvh - 100px);
+  overflow-y: auto;
+
+  z-index: 2000;
+}
+
+/* Tilgængelighedsknappen må ikke flytte sig */
+.accessibility-toggle {
+  position: relative;
+}
+
+/* Mobil */
+@media (max-width: 600px) {
+  .accessibility-panel {
+    right: 12px;
+    width: calc(100vw - 24px);
+    max-height: 75dvh;
+  }
+}
+
