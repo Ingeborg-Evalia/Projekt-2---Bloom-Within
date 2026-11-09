@@ -4266,6 +4266,21 @@ body.bloom-together-page.dark-mode
   z-index: 2000;
 }
 
+/* Lad menuen flyde oven på siden */
+.header .accessibility-panel {
+  position: absolute;
+  top: 100%;
+  right: 20px;
+  left: auto;
+  margin-top: 12px;
+  z-index: 2000;
+}
+
+/* Undgå at headerens indhold strækkes */
+.header {
+  align-items: center;
+}
+
 /* Tilgængelighedsknappen må ikke flytte sig */
 .accessibility-toggle {
   position: relative;
