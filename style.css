@@ -4196,3 +4196,48 @@ body.bloom-together-page.dark-mode
   color: #F5EFE6;
   border-color: #A6B09C;
 }
+
+
+
+/* LUK-KNAP TIL TILGÆNGELIGHEDSMENU */
+
+.accessibility-panel {
+  position: relative;
+}
+
+.accessibility-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: 8px;
+
+  color: inherit;
+  font-size: 26px;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.accessibility-close:hover {
+  background: rgba(166, 176, 156, 0.2);
+}
+
+.accessibility-close:focus-visible {
+  outline: 3px solid #C9926E;
+  outline-offset: 3px;
+}
+
+/* Plads til X-knappen */
+.accessibility-panel h2 {
+  padding-right: 45px;
+}
