@@ -433,3 +433,22 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
+
+
+document.querySelectorAll(".accessibility-close").forEach((closeButton) => {
+  closeButton.addEventListener("click", () => {
+    const panel = closeButton.closest(".accessibility-panel");
+
+    if (!panel) return;
+
+    // Brug den eksisterende knap til at lukke menuen
+    const toggleButton = document.querySelector(
+      '[aria-controls="' + panel.id + '"]'
+    );
+
+    if (toggleButton) {
+      toggleButton.click();
+    }
+  });
+});
